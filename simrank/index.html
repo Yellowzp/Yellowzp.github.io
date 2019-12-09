@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="yellowzp">
 <meta property="og:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yellowzp.com/images/bi_graph.jpg">
-<meta property="og:updated_time" content="2019-12-09T02:21:34.630Z">
+<meta property="og:image" content="http://yellowzp.com/simrank/images/bi_graph.jpg">
+<meta property="og:updated_time" content="2019-12-09T09:45:18.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SimRank算法原理">
 <meta name="twitter:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
-<meta name="twitter:image" content="http://yellowzp.com/images/bi_graph.jpg">
+<meta name="twitter:image" content="http://yellowzp.com/simrank/images/bi_graph.jpg">
 
 
 
@@ -383,7 +383,7 @@
 <li>如果两个物品类似，则与这两个物品相关联的用户也类似。</li>
 </ol>
 <p>SimRank应用于可以构建二部图的推荐场景。所谓<strong>二部图</strong>就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，二部图的子集内部没有边连接。左边的用户节点形成一个点集，右边的物品节点行形成另一个点集，用户和物品之间的购买行为则构成了二部图的边。</p>
-<p><img src="/images/bi_graph.jpg" alt="图1 二部图" title="图1 二部图"></p>
+<p><img src="images/bi_graph.jpg" alt="图1 二部图" title="图1 二部图"></p>
 <p>通过SimRank，我们可以得到用户之间的相似度，以及物品之间的相似度，继而进行一些实际的推荐应用。</p>
 <a id="more"></a>
 <h2 id="Bipartite-SimRank（朴素SimRank）"><a href="#Bipartite-SimRank（朴素SimRank）" class="headerlink" title="Bipartite SimRank（朴素SimRank）"></a>Bipartite SimRank（朴素SimRank）</h2><p>Bipartite SimRank就是原始SimRank基于二部图的实现模型，即朴素SimRank。（原始SimRank是利用有向图解决结构化文本相似度的理论模型）[4]</p>
@@ -393,13 +393,12 @@
 <p>$$<br>s(c,d)=\frac{C_2}{|I(c)||I(d)|}\sum_{i=1}^{|I(c)|}\sum_{j=1}^{|I(d)|}s(I_i(c), I_j(d))<br>\tag{2}<br>$$</p>
 <p>其中$I(a)$为节点a的入邻节点，$O(a)$为出邻节点，$C_1$和$C_2$为阻尼系数。</p>
 <p>综上可以看出，式(1)和式(2)非常相似。所以我们可以将有向二部图看成无向图，即删去边的方向。所有节点通过边相连的节点都视为其的入邻节点。另外一般赋值$C_1=C_2=C$。于是朴素SimRank的公式如下：</p>
-<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b}) \<br>    1 &amp; (a=b)<br>\end{cases}<br>$$</p>
-<p>$$<br>s_0(a,b)=\left{<br>    \begin{array}{ll}<br>        0 &amp; (a\neq{b})\<br>        1 &amp; (a=b)\<br>    \end{array}<br>\right.<br>\<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
-<p>其中$s_k(<em>,</em>)$表示第k轮迭代中两个节点的相似度。</p>
+<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b})\<br>    1 &amp; (a=b)<br>\end{cases}<br>$$<br>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
+<p>其中$s_k(x,y)$表示第k轮迭代中两个节点的相似度。</p>
 <h3 id="矩阵化"><a href="#矩阵化" class="headerlink" title="矩阵化"></a>矩阵化</h3><p>为方便计算和分布式实现，需要将上式转化为矩阵计算。注意到上式可以转化为：</p>
-<p>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\tag{3}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\end{aligned}<br>\tag{3}<br>$$</p>
 <p>其中$V$是二部图节点集合，$k$是当前迭代的轮数，$v_i$为$V$中第$i$个节点。$p(v_i,a)$表示节点$v_i$到节点$a$的转移概率，其公式为：</p>
-<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\left{<br>    \begin{array}{ll}<br>        1 &amp; x和y相邻 \<br>        0 &amp; x和y不相邻<br>    \end{array}<br>\right.<br>$$</p>
+<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\begin{cases}<br>    1 &amp; x和y相邻 \<br>    0 &amp; x和y不相邻<br>\end{cases}<br>$$</p>
 <p>于是，节点间的相似度矩阵S的计算公式为：</p>
 <p>$$<br>S_k=\left{<br>    \begin{array}{ll}<br>        CP^TS_{k-1}P+I_n-Diag(diag(CP^TS_kP)) &amp; k &gt; 0 \<br>        I_n &amp; k=0<br>    \end{array}<br>\right.<br>$$</p>
 <p>其中，矩阵S的元素$s_{i,j}=s(i,j)$，节点间的相似度。$P$是二部图的邻接矩阵按行归一化后的转移概率矩阵，即$P$每一行元素和为1。$I_n$是$n*n$的单位矩阵。$diag(M)$函数是取矩阵M的对角向量，$Diag(V)$是将向量V转为一个对角矩阵。因为相似度矩阵S中，节点自己与自己的相似度为1，所以需要加入修正项。</p>
@@ -422,7 +421,7 @@
 <p>因为SimRank有多轮迭代，而相似度证据只需要计算一次，所以节点相似度证据在SimRank迭代完最后再计算。</p>
 <h3 id="加入边的权重"><a href="#加入边的权重" class="headerlink" title="加入边的权重"></a>加入边的权重</h3><p>在互联网广告中，用户点击1次商品A和点击1000次商品B的意义是不同的，显然商品B对于用户更相关。同样的，用户A点击1次商品i，而用户B点击100次商品i，用户C点击100次商品j，用户D点击100次商品j，我们可以得出用户C和D更相似，而A和B则不相似。所以边的权重是非常重要的因素，SimRank考虑边的权重是必要的。</p>
 <p>朴素SimRank中式(4)表示了节点之间的转移概率，每条边的权重都为1，表示节点间有无边相连。现我们将边的权重设为边的数量，即节点间的连接数（例子中点击的数量），然后归一化。改进后的节点间的带权转移概率为：</p>
-<p>$$<br>p_w(x,y)=e^{-var(y)}\frac{w(x,y)}{\sum_{i=1}^{|V|}w(x,v_i)}<br>$$<br>$$<br>特别p_w(x,x)=1-\sum_{i=1}^{|V|}p(x, v_i)<br>$$<br>$$<br>var(y)=\frac{\sum_i^{|E(y)|}(w(E_i(y),y)-\mu_y)^2}{|E(y)|}<br>$$</p>
+<p>$$<br>p_w(x,y)=e^{-var(y)}\frac{w(x,y)}{\sum_{i=1}^{|V|}w(x,v_i)}<br>$$<br>$$<br>特别p_w(x,x)=1-\sum_{i=1}^{|V|}p_w(x, v_i)<br>$$<br>$$<br>var(y)=\frac{\sum_i^{|E(y)|}(w(E_i(y),y)-\mu_y)^2}{|E(y)|}<br>$$</p>
 <p>其中$w(x,y)$表示节点x和y之间的边数（x对y的点击数）。$var(y)$即y的所有邻边的权重方差，可见方差越大，权重越小。</p>
 <p>于是，节点间的相似度矩阵S的计算公式改为：</p>
 <p>$$<br>S_k=\left{<br>    \begin{array}{ll}<br>        CW^TS_{k-1}W+I_n-Diag(diag(CW^TS_kW)) &amp; k &gt; 0 \<br>        I_n &amp; k=0<br>    \end{array}<br>\right.<br>$$</p>
@@ -959,26 +958,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
   
 
 
