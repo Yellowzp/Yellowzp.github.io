@@ -88,7 +88,7 @@
 <meta property="og:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yellowzp.com/images/bi_graph.jpg">
-<meta property="og:updated_time" content="2019-12-07T09:14:58.152Z">
+<meta property="og:updated_time" content="2019-12-09T02:21:34.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SimRank算法原理">
 <meta name="twitter:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
@@ -393,7 +393,7 @@
 <p>$$<br>s(c,d)=\frac{C_2}{|I(c)||I(d)|}\sum_{i=1}^{|I(c)|}\sum_{j=1}^{|I(d)|}s(I_i(c), I_j(d))<br>\tag{2}<br>$$</p>
 <p>其中$I(a)$为节点a的入邻节点，$O(a)$为出邻节点，$C_1$和$C_2$为阻尼系数。</p>
 <p>综上可以看出，式(1)和式(2)非常相似。所以我们可以将有向二部图看成无向图，即删去边的方向。所有节点通过边相连的节点都视为其的入邻节点。另外一般赋值$C_1=C_2=C$。于是朴素SimRank的公式如下：</p>
-<p>$$<br>s_0(a,b)=\begin{cases}<br>0 &amp; (a\neq{b}) \<br>1 &amp; (a=b) \<br>\end{cases}<br>$$</p>
+<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b}) \<br>    1 &amp; (a=b)<br>\end{cases}<br>$$</p>
 <p>$$<br>s_0(a,b)=\left{<br>    \begin{array}{ll}<br>        0 &amp; (a\neq{b})\<br>        1 &amp; (a=b)\<br>    \end{array}<br>\right.<br>\<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
 <p>其中$s_k(<em>,</em>)$表示第k轮迭代中两个节点的相似度。</p>
 <h3 id="矩阵化"><a href="#矩阵化" class="headerlink" title="矩阵化"></a>矩阵化</h3><p>为方便计算和分布式实现，需要将上式转化为矩阵计算。注意到上式可以转化为：</p>
