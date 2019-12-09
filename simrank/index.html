@@ -393,14 +393,14 @@
 <p>$$<br>s(c,d)=\frac{C_2}{|I(c)||I(d)|}\sum_{i=1}^{|I(c)|}\sum_{j=1}^{|I(d)|}s(I_i(c), I_j(d))<br>\tag{2}<br>$$</p>
 <p>其中$I(a)$为节点a的入邻节点，$O(a)$为出邻节点，$C_1$和$C_2$为阻尼系数。</p>
 <p>综上可以看出，式(1)和式(2)非常相似。所以我们可以将有向二部图看成无向图，即删去边的方向。所有节点通过边相连的节点都视为其的入邻节点。另外一般赋值$C_1=C_2=C$。于是朴素SimRank的公式如下：</p>
-<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b})\<br>    1 &amp; (a=b)<br>\end{cases}<br>$$<br>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
+<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b})\\<br>    1 &amp; (a=b)<br>\end{cases}<br>$$<br>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
 <p>其中$s_k(x,y)$表示第k轮迭代中两个节点的相似度。</p>
 <h3 id="矩阵化"><a href="#矩阵化" class="headerlink" title="矩阵化"></a>矩阵化</h3><p>为方便计算和分布式实现，需要将上式转化为矩阵计算。注意到上式可以转化为：</p>
-<p>$$<br>\begin{aligned}<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\end{aligned}<br>\tag{3}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \\<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\end{aligned}<br>\tag{3}<br>$$</p>
 <p>其中$V$是二部图节点集合，$k$是当前迭代的轮数，$v_i$为$V$中第$i$个节点。$p(v_i,a)$表示节点$v_i$到节点$a$的转移概率，其公式为：</p>
-<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\begin{cases}<br>    1 &amp; x和y相邻 \<br>    0 &amp; x和y不相邻<br>\end{cases}<br>$$</p>
+<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\begin{cases}<br>    1 &amp; x和y相邻 \\<br>    0 &amp; x和y不相邻<br>\end{cases}<br>$$</p>
 <p>于是，节点间的相似度矩阵S的计算公式为：</p>
-<p>$$<br>S_k=\begin{cases}<br>    CP^TS_{k-1}P+I_n-Diag(diag(CP^TS_kP)) &amp; k &gt; 0 \<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
+<p>$$<br>S_k=\begin{cases}<br>    CP^TS_{k-1}P+I_n-Diag(diag(CP^TS_kP)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
 <p>其中，矩阵S的元素$s_{i,j}=s(i,j)$，节点间的相似度。$P$是二部图的邻接矩阵按行归一化后的转移概率矩阵，即$P$每一行元素和为1。$I_n$是$n*n$的单位矩阵。$diag(M)$函数是取矩阵M的对角向量，$Diag(V)$是将向量V转为一个对角矩阵。因为相似度矩阵S中，节点自己与自己的相似度为1，所以需要加入修正项。</p>
 <h2 id="SimRank"><a href="#SimRank" class="headerlink" title="SimRank++"></a>SimRank++</h2><p>朴素SimRank会有以下存在问题。</p>
 <ol>
@@ -424,7 +424,7 @@
 <p>$$<br>p_w(x,y)=e^{-var(y)}\frac{w(x,y)}{\sum_{i=1}^{|V|}w(x,v_i)}<br>$$<br>$$<br>特别p_w(x,x)=1-\sum_{i=1}^{|V|}p_w(x, v_i)<br>$$<br>$$<br>var(y)=\frac{\sum_i^{|E(y)|}(w(E_i(y),y)-\mu_y)^2}{|E(y)|}<br>$$</p>
 <p>其中$w(x,y)$表示节点x和y之间的边数（x对y的点击数）。$var(y)$即y的所有邻边的权重方差，可见方差越大，权重越小。</p>
 <p>于是，节点间的相似度矩阵S的计算公式改为：</p>
-<p>$$<br>S_k=\begin{cases}<br>    CW^TS_{k-1}W+I_n-Diag(diag(CW^TS_kW)) &amp; k &gt; 0 \<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
+<p>$$<br>S_k=\begin{cases}<br>    CW^TS_{k-1}W+I_n-Diag(diag(CW^TS_kW)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
 <p>$W$是二部图的带权转移概率矩阵，元素就是$p_w(i,j)$。</p>
 <h3 id="完整SimRank-算法步骤"><a href="#完整SimRank-算法步骤" class="headerlink" title="完整SimRank++算法步骤"></a>完整SimRank++算法步骤</h3><p>输入: 阻尼系数$C$，迭代词数$k$，带权转移矩阵$W$，证据矩阵$V$<br>输出: 节点相似度矩阵$S$<br>程序:  </p>
 <ol>
