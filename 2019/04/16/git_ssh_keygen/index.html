@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="machine_learning,">
+  <meta name="keywords" content="git,ssh,keygen,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="机器学习笔记">
-<meta name="keywords" content="machine_learning">
+<meta name="description" content="multi git ssh keygen">
+<meta name="keywords" content="git,ssh,keygen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习笔记">
-<meta property="og:url" content="http://yellowzp.com/machinelearning/index.html">
+<meta property="og:title" content="git同时配置gitee和github免秘钥">
+<meta property="og:url" content="http://yellowzp.com/2019/04/16/git_ssh_keygen/index.html">
 <meta property="og:site_name" content="yellowzp">
-<meta property="og:description" content="机器学习笔记">
+<meta property="og:description" content="multi git ssh keygen">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T15:27:06.166Z">
+<meta property="og:updated_time" content="2019-12-06T15:27:06.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习笔记">
-<meta name="twitter:description" content="机器学习笔记">
+<meta name="twitter:title" content="git同时配置gitee和github免秘钥">
+<meta name="twitter:description" content="multi git ssh keygen">
 
 
 
@@ -122,12 +122,12 @@
 
 
 
-  <link rel="canonical" href="http://yellowzp.com/machinelearning/">
+  <link rel="canonical" href="http://yellowzp.com/2019/04/16/git_ssh_keygen/">
 
 
 
 
-  <title>机器学习笔记 | yellowzp</title>
+  <title>git同时配置gitee和github免秘钥 | yellowzp</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yellowzp.com/machinelearning/">
+    <link itemprop="mainEntityOfPage" href="http://yellowzp.com/2019/04/16/git_ssh_keygen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vesper Huang">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">git同时配置gitee和github免秘钥</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T16:53:00+08:00">
-                2018-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T11:26:00+08:00">
+                2019-04-16
               </time>
             
 
@@ -326,8 +326,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">machine_learning</span>
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
                   </a>
                 </span>
 
@@ -343,7 +343,7 @@
 
           
           
-             <span id="/machinelearning/" class="leancloud_visitors" data-flag-title="机器学习笔记">
+             <span id="/2019/04/16/git_ssh_keygen/" class="leancloud_visitors" data-flag-title="git同时配置gitee和github免秘钥">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -374,85 +374,13 @@
       
 
       
-        <h1 id="机器学习笔记"><a href="#机器学习笔记" class="headerlink" title="机器学习笔记"></a>机器学习笔记</h1><a id="more"></a>
-<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><p>1 最大最小值归一化</p>
-<p>$$<br>x = \frac{x-min}{max-min}<br>$$</p>
-<p>最大值往往会是一个奇异点，实际工程中会取99分位值作为最大值。</p>
-<p>2 z标准化</p>
-<p>$$<br>x=\frac{x-\mu}{\sigma}<br>$$</p>
-<h2 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h2><h3 id="分类指标"><a href="#分类指标" class="headerlink" title="分类指标"></a>分类指标</h3><h4 id="准确率和召回率"><a href="#准确率和召回率" class="headerlink" title="准确率和召回率"></a>准确率和召回率</h4><p>$$<br>P=\frac{TP}{TP+FP}<br>$$<br>$$<br>R=\frac{TP}{TP+FN}<br>$$</p>
-<h4 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h4><p>$$<br>\frac{2}{F_1}=\frac{1}{P}+\frac{1}{R}<br>$$</p>
-<h4 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h4><p>AUC（Area under the Curve of ROC）是ROC曲线下方的面积，是判断二分类预测模型优劣的标准。  </p>
-<p>ROC纵坐标是真正率TPR，横坐标是假正率FPR<br>$$<br>TPR=\frac{TP}{TP+FN}<br>$$<br>$$<br>FPR=\frac{FP}{FP+TN}<br>$$</p>
-<h4 id="logloss"><a href="#logloss" class="headerlink" title="logloss"></a>logloss</h4><h3 id="回归指标"><a href="#回归指标" class="headerlink" title="回归指标"></a>回归指标</h3><h4 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h4><p>平均绝对误差</p>
-<p>$$<br>MAE=\frac{1}{m}\sum_{i=1}^m{|(y_i-\hat{y_i})|}<br>$$</p>
-<h4 id="RMSE"><a href="#RMSE" class="headerlink" title="RMSE"></a>RMSE</h4><p>均方根误差</p>
-<p>$$<br>RMSE=\sqrt{\frac{1}{m}\sum_{i=1}^m{(y_i-\hat{y_i})^2}}<br>$$</p>
-<h3 id="排序指标"><a href="#排序指标" class="headerlink" title="排序指标"></a>排序指标</h3><h4 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h4><h4 id="NDCG"><a href="#NDCG" class="headerlink" title="NDCG"></a>NDCG</h4><p>搜索评价指标</p>
-<h5 id="CG"><a href="#CG" class="headerlink" title="CG"></a>CG</h5><p>cumulative gain，累计增益，它是一个搜素结果相关性分数的总和。</p>
-<p>$$<br>CG_p=\sum_{i=1}^p{rel_i}<br>$$</p>
-<p>前p个位置的CG分数，rel是相关性，</p>
-<h5 id="DCG"><a href="#DCG" class="headerlink" title="DCG"></a>DCG</h5><p>Discounted的CG，折损累计增益，目的就是为了让排名越靠前的结果越能影响最后的结果。</p>
-<p>$$<br>DCG_p=\sum_{i=1}^p{\frac{rel_i}{\log_2 (i+1)}}<br>$$</p>
-<p>还有一种比较常用的公式</p>
-<p>$$<br>DCG_p=\sum_{i=1}^p{\frac{2^{rel_i}-1}{\log_2 (i+1)}}<br>$$</p>
-<h5 id="NDCG-1"><a href="#NDCG-1" class="headerlink" title="NDCG"></a>NDCG</h5><p>Normalized的DCG，归一化折损累计增益。由于搜索结果随着检索词的不同，返回的数量是不一致的，而DCG是一个累加的值，没法针对两个不同的搜索结果进行比较，因此需要归一化处理。</p>
-<p>$$<br>NDCG_p=\frac{DCG_p}{IDCG_p}<br>$$</p>
-<p>$$<br>IDCG_p=\sum_{i=1}^{|REL|}{\frac{2^{rel_i}-1}{\log_2 (i+1)}}<br>$$</p>
-<p>|REL|表示，结果按照相关性从大到小的顺序排序，取前p个结果组成的集合。</p>
-<p>NDCG@6表示统计TOP6的增益。</p>
-<h2 id="向量的模"><a href="#向量的模" class="headerlink" title="向量的模"></a>向量的模</h2><p>$$<br>||X||=\sqrt{x_1^2+x_2^2+…+x_n^2}<br>$$</p>
-<h2 id="softmax函数"><a href="#softmax函数" class="headerlink" title="softmax函数"></a>softmax函数</h2><p>Softmax函数，或称归一化指数函数，是逻辑函数的一种推广。它能将一个含任意实数的K维向量“压缩”到另一个K维实向量中，使得每一个元素的范围都在(0, 1)之间，并且所有元素的和为1。<br>$$<br>S_i=\frac{e^{V_i}}{\sum_i^C{e^{V_i}}}<br>$$<br>Vi 是分类器前级输出单元的输出。i 表示类别索引，总的类别个数为 C。Si 表示的是当前元素的指数与所有元素指数和的比值。</p>
-<h2 id="残差"><a href="#残差" class="headerlink" title="残差"></a>残差</h2><p>真实值和预测值的差<br>$$<br>y_i-F(x_i)<br>$$</p>
-<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><table>
-<thead>
-<tr>
-<th>生成算法</th>
-<th>划分标准</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ID3</td>
-<td>信息增益</td>
-</tr>
-<tr>
-<td>C4.5</td>
-<td>信息增益率</td>
-</tr>
-<tr>
-<td>CART</td>
-<td>基尼指数</td>
-</tr>
-</tbody>
-</table>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ol>
-<li>分类决策树</li>
-<li>回归决策树</li>
-</ol>
-<blockquote>
-<p>回归树<br><a href="https://blog.csdn.net/weixin_40604987/article/details/79296427" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40604987/article/details/79296427</a></p>
-</blockquote>
-<h2 id="boosting集成学习算法"><a href="#boosting集成学习算法" class="headerlink" title="boosting集成学习算法"></a>boosting集成学习算法</h2><p>原始的boosting算法开始时，为每一个样本赋上一个权重值。在每一步训练中得到的模型，会使得数据点的估计有对有错，在每一步结束后，增加分错的点的权重，减少分对的点的权重，这样使得某些点如果老是被分错，那么就会被“严重关注”，也就被赋上一个很高的权重。然后等进行了N次迭代（由用户指定），将会得到N个简单的分类器（basic learner），然后我们将它们组合起来（比如说可以对它们进行加权、或者让它们进行投票等），得到一个最终的模型。</p>
-<h2 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h2><blockquote>
-<p><a href="https://www.zybuluo.com/Dounm/note/1031900" target="_blank" rel="noopener">https://www.zybuluo.com/Dounm/note/1031900</a><br><a href="https://blog.csdn.net/Gavin__Zhou/article/details/71156715" target="_blank" rel="noopener">https://blog.csdn.net/Gavin__Zhou/article/details/71156715</a></p>
-</blockquote>
-<p>GBDT是Gradient Boosting和boosting tree的结合，基学习器是树，CART树，loss函数不定。<br>训练时采用前向分步算法。</p>
-<h3 id="Gradient-Boosting"><a href="#Gradient-Boosting" class="headerlink" title="Gradient Boosting"></a>Gradient Boosting</h3><p>Gradient Boosting是boosting提升算法的一种。<br>GBDT是Gradient Boosting算法的一种实现。<br>它主要的思想是，每一次建立模型是在之前建立模型损失函数的梯度下降方向。损失函数是评价模型性能（一般为拟合程度+正则项），认为损失函数越小，性能越好。而让损失函数持续下降，就能使得模型不断改性提升性能，其最好的方法就是使损失函数沿着梯度方向下降（讲道理梯度方向上下降最快）。</p>
-<h3 id="boosting-tree"><a href="#boosting-tree" class="headerlink" title="boosting tree"></a>boosting tree</h3><p>以分类决策树或回归决策树为基学习器的boosting算法被称为提升树（Boosting Tree）</p>
-<h3 id="加法模型（一种理解）"><a href="#加法模型（一种理解）" class="headerlink" title="加法模型（一种理解）"></a>加法模型（一种理解）</h3><p>最终结果是M个基学习器结果求和得到。<br>$$<br>\hat{y_i} = \sum_{k=1}^M{f_k(x_i)}<br>$$</p>
-<p>$f_k(x_i)$是第k个学习器</p>
-<h3 id="前向分步算法"><a href="#前向分步算法" class="headerlink" title="前向分步算法"></a>前向分步算法</h3><ol>
-<li>初始化$f_0(x)=0$</li>
-<li>第t步时，得到第t个模型$f_t(x)=f_{t-1}(x)+T(x;\gamma_t)$</li>
-<li>第t步的目标函数是$(\gamma_t)=argmin\sum_{i=1}^N{L(y_i, f_{t-1}(x_i)+T(x_i;\gamma_t))}$</li>
-<li>最终模型就是等于最后一步得到的模型$f(x)=f_M(x)=\sum_{t=1}^M{T(x;\gamma_t)}$</li>
-</ol>
-<p>$T(x;\gamma_t)$是基学习器，$\gamma_t$是基学习器参数。<br>每一步得到的模型是累加的结果，每一步求解的是$T(x;\gamma_t)$。</p>
-<h3 id="GBDT的目标函数"><a href="#GBDT的目标函数" class="headerlink" title="GBDT的目标函数"></a>GBDT的目标函数</h3><h2 id="xgboost"><a href="#xgboost" class="headerlink" title="xgboost"></a>xgboost</h2><blockquote>
-<p><a href="https://blog.csdn.net/qdbszsj/article/details/79615712" target="_blank" rel="noopener">https://blog.csdn.net/qdbszsj/article/details/79615712</a></p>
-</blockquote>
-
+        <h1 id="multi-git-ssh-keygen"><a href="#multi-git-ssh-keygen" class="headerlink" title="multi git ssh keygen"></a>multi git ssh keygen</h1><a id="more"></a>
+<h2 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "xxx@gmail.com"</span><br></pre></td></tr></table></figure>
+<h2 id="gitee和github同时绑定"><a href="#gitee和github同时绑定" class="headerlink" title="gitee和github同时绑定"></a>gitee和github同时绑定</h2><p>1 生成两份ssh秘钥, 在用户的.ssh目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id_rsa_gitee</span><br><span class="line">id_rsa_gitee.pub</span><br><span class="line">id_rsa_github</span><br><span class="line">id_rsa_github.pub</span><br></pre></td></tr></table></figure>
+<p>2 将.pub文件中所有内容加到gitee和github账户中<br>3 在用户的.ssh目录下创建config文件，代码如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置github.com</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    IdentityFile C:\\Users\\yourname\\.ssh\\id_rsa_github</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    User xxx@gmail.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 配置gitee.com</span><br><span class="line">Host gitee.com</span><br><span class="line">    HostName gitee.com</span><br><span class="line">    IdentityFile C:\\Users\\yourname\\.ssh\\id_rsa_gitee</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    User xxx@126.com</span><br></pre></td></tr></table></figure>
+<h2 id="检测是否成功"><a href="#检测是否成功" class="headerlink" title="检测是否成功"></a>检测是否成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -469,12 +397,31 @@
       
         <div class="post-tags">
           
-            <a href="/tags/machine-learning/" rel="tag"># machine_learning</a>
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+            <a href="/tags/ssh/" rel="tag"># ssh</a>
+          
+            <a href="/tags/keygen/" rel="tag"># keygen</a>
           
         </div>
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
       
       
 
@@ -482,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/markdown/" rel="next" title="Markdown Learning Notes">
-                <i class="fa fa-chevron-left"></i> Markdown Learning Notes
+              <a href="/2019/04/09/maven_package_local_jar/" rel="next" title="idea maven打包加载本地jar包">
+                <i class="fa fa-chevron-left"></i> idea maven打包加载本地jar包
               </a>
             
           </div>
@@ -492,8 +439,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/maven_package_local_jar/" rel="prev" title="idea maven打包加载本地jar包">
-                idea maven打包加载本地jar包 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/03/simrank/" rel="prev" title="SimRank算法原理">
+                SimRank算法原理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -650,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习笔记"><span class="nav-number">1.</span> <span class="nav-text">机器学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特征工程"><span class="nav-number">1.1.</span> <span class="nav-text">特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#归一化"><span class="nav-number">1.1.1.</span> <span class="nav-text">归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评估指标"><span class="nav-number">1.2.</span> <span class="nav-text">评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类指标"><span class="nav-number">1.2.1.</span> <span class="nav-text">分类指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准确率和召回率"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">准确率和召回率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#F1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AUC"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">AUC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#logloss"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">logloss</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归指标"><span class="nav-number">1.2.2.</span> <span class="nav-text">回归指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MAE"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">MAE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RMSE"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">RMSE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序指标"><span class="nav-number">1.2.3.</span> <span class="nav-text">排序指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MAP"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">MAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NDCG"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">NDCG</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CG"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">CG</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DCG"><span class="nav-number">1.2.3.2.2.</span> <span class="nav-text">DCG</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NDCG-1"><span class="nav-number">1.2.3.2.3.</span> <span class="nav-text">NDCG</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量的模"><span class="nav-number">1.3.</span> <span class="nav-text">向量的模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#softmax函数"><span class="nav-number">1.4.</span> <span class="nav-text">softmax函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#残差"><span class="nav-number">1.5.</span> <span class="nav-text">残差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树"><span class="nav-number">1.6.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型"><span class="nav-number">1.6.1.</span> <span class="nav-text">类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boosting集成学习算法"><span class="nav-number">1.7.</span> <span class="nav-text">boosting集成学习算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT"><span class="nav-number">1.8.</span> <span class="nav-text">GBDT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Boosting"><span class="nav-number">1.8.1.</span> <span class="nav-text">Gradient Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boosting-tree"><span class="nav-number">1.8.2.</span> <span class="nav-text">boosting tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加法模型（一种理解）"><span class="nav-number">1.8.3.</span> <span class="nav-text">加法模型（一种理解）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向分步算法"><span class="nav-number">1.8.4.</span> <span class="nav-text">前向分步算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBDT的目标函数"><span class="nav-number">1.8.5.</span> <span class="nav-text">GBDT的目标函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xgboost"><span class="nav-number">1.9.</span> <span class="nav-text">xgboost</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#multi-git-ssh-keygen"><span class="nav-number">1.</span> <span class="nav-text">multi git ssh keygen</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成秘钥"><span class="nav-number">1.1.</span> <span class="nav-text">生成秘钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitee和github同时绑定"><span class="nav-number">1.2.</span> <span class="nav-text">gitee和github同时绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测是否成功"><span class="nav-number">1.3.</span> <span class="nav-text">检测是否成功</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -711,6 +658,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -961,28 +914,45 @@
 
   
   
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
   
 
 

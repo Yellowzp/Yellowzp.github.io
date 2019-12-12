@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="推荐算法,simrank,协同过滤,广告算法,">
+  <meta name="keywords" content="machine_learning,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
-<meta name="keywords" content="推荐算法,simrank,协同过滤,广告算法">
+<meta name="description" content="机器学习笔记">
+<meta name="keywords" content="machine_learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SimRank算法原理">
-<meta property="og:url" content="http://yellowzp.com/simrank/index.html">
+<meta property="og:title" content="机器学习笔记">
+<meta property="og:url" content="http://yellowzp.com/2018/11/15/machinelearning/index.html">
 <meta property="og:site_name" content="yellowzp">
-<meta property="og:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
+<meta property="og:description" content="机器学习笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yellowzp.com/images/bi_graph.jpg">
-<meta property="og:updated_time" content="2019-12-09T11:30:16.064Z">
+<meta property="og:updated_time" content="2019-12-06T15:27:06.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SimRank算法原理">
-<meta name="twitter:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
-<meta name="twitter:image" content="http://yellowzp.com/images/bi_graph.jpg">
+<meta name="twitter:title" content="机器学习笔记">
+<meta name="twitter:description" content="机器学习笔记">
 
 
 
@@ -124,12 +122,12 @@
 
 
 
-  <link rel="canonical" href="http://yellowzp.com/simrank/">
+  <link rel="canonical" href="http://yellowzp.com/2018/11/15/machinelearning/">
 
 
 
 
-  <title>SimRank算法原理 | yellowzp</title>
+  <title>机器学习笔记 | yellowzp</title>
   
 
 
@@ -276,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yellowzp.com/simrank/">
+    <link itemprop="mainEntityOfPage" href="http://yellowzp.com/2018/11/15/machinelearning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vesper Huang">
@@ -293,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SimRank算法原理</h1>
+          <h1 class="post-title" itemprop="name headline">机器学习笔记</h1>
         
 
         <div class="post-meta">
@@ -305,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T18:15:00+08:00">
-                2019-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T16:53:00+08:00">
+                2018-11-15
               </time>
             
 
@@ -328,8 +326,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
-                    <span itemprop="name">推荐算法</span>
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">machine_learning</span>
                   </a>
                 </span>
 
@@ -345,7 +343,7 @@
 
           
           
-             <span id="/simrank/" class="leancloud_visitors" data-flag-title="SimRank算法原理">
+             <span id="/2018/11/15/machinelearning/" class="leancloud_visitors" data-flag-title="机器学习笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -376,64 +374,84 @@
       
 
       
-        <h1 id="SimRank算法原理"><a href="#SimRank算法原理" class="headerlink" title="SimRank算法原理"></a>SimRank算法原理</h1><p>SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：</p>
-<ol>
-<li>如果两个用户相似，则与这两个用户相关联的物品也类似；</li>
-<li>如果两个物品类似，则与这两个物品相关联的用户也类似。</li>
+        <h1 id="机器学习笔记"><a href="#机器学习笔记" class="headerlink" title="机器学习笔记"></a>机器学习笔记</h1><a id="more"></a>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><p>1 最大最小值归一化</p>
+<p>$$<br>x = \frac{x-min}{max-min}<br>$$</p>
+<p>最大值往往会是一个奇异点，实际工程中会取99分位值作为最大值。</p>
+<p>2 z标准化</p>
+<p>$$<br>x=\frac{x-\mu}{\sigma}<br>$$</p>
+<h2 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h2><h3 id="分类指标"><a href="#分类指标" class="headerlink" title="分类指标"></a>分类指标</h3><h4 id="准确率和召回率"><a href="#准确率和召回率" class="headerlink" title="准确率和召回率"></a>准确率和召回率</h4><p>$$<br>P=\frac{TP}{TP+FP}<br>$$<br>$$<br>R=\frac{TP}{TP+FN}<br>$$</p>
+<h4 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h4><p>$$<br>\frac{2}{F_1}=\frac{1}{P}+\frac{1}{R}<br>$$</p>
+<h4 id="AUC"><a href="#AUC" class="headerlink" title="AUC"></a>AUC</h4><p>AUC（Area under the Curve of ROC）是ROC曲线下方的面积，是判断二分类预测模型优劣的标准。  </p>
+<p>ROC纵坐标是真正率TPR，横坐标是假正率FPR<br>$$<br>TPR=\frac{TP}{TP+FN}<br>$$<br>$$<br>FPR=\frac{FP}{FP+TN}<br>$$</p>
+<h4 id="logloss"><a href="#logloss" class="headerlink" title="logloss"></a>logloss</h4><h3 id="回归指标"><a href="#回归指标" class="headerlink" title="回归指标"></a>回归指标</h3><h4 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h4><p>平均绝对误差</p>
+<p>$$<br>MAE=\frac{1}{m}\sum_{i=1}^m{|(y_i-\hat{y_i})|}<br>$$</p>
+<h4 id="RMSE"><a href="#RMSE" class="headerlink" title="RMSE"></a>RMSE</h4><p>均方根误差</p>
+<p>$$<br>RMSE=\sqrt{\frac{1}{m}\sum_{i=1}^m{(y_i-\hat{y_i})^2}}<br>$$</p>
+<h3 id="排序指标"><a href="#排序指标" class="headerlink" title="排序指标"></a>排序指标</h3><h4 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h4><h4 id="NDCG"><a href="#NDCG" class="headerlink" title="NDCG"></a>NDCG</h4><p>搜索评价指标</p>
+<h5 id="CG"><a href="#CG" class="headerlink" title="CG"></a>CG</h5><p>cumulative gain，累计增益，它是一个搜素结果相关性分数的总和。</p>
+<p>$$<br>CG_p=\sum_{i=1}^p{rel_i}<br>$$</p>
+<p>前p个位置的CG分数，rel是相关性，</p>
+<h5 id="DCG"><a href="#DCG" class="headerlink" title="DCG"></a>DCG</h5><p>Discounted的CG，折损累计增益，目的就是为了让排名越靠前的结果越能影响最后的结果。</p>
+<p>$$<br>DCG_p=\sum_{i=1}^p{\frac{rel_i}{\log_2 (i+1)}}<br>$$</p>
+<p>还有一种比较常用的公式</p>
+<p>$$<br>DCG_p=\sum_{i=1}^p{\frac{2^{rel_i}-1}{\log_2 (i+1)}}<br>$$</p>
+<h5 id="NDCG-1"><a href="#NDCG-1" class="headerlink" title="NDCG"></a>NDCG</h5><p>Normalized的DCG，归一化折损累计增益。由于搜索结果随着检索词的不同，返回的数量是不一致的，而DCG是一个累加的值，没法针对两个不同的搜索结果进行比较，因此需要归一化处理。</p>
+<p>$$<br>NDCG_p=\frac{DCG_p}{IDCG_p}<br>$$</p>
+<p>$$<br>IDCG_p=\sum_{i=1}^{|REL|}{\frac{2^{rel_i}-1}{\log_2 (i+1)}}<br>$$</p>
+<p>|REL|表示，结果按照相关性从大到小的顺序排序，取前p个结果组成的集合。</p>
+<p>NDCG@6表示统计TOP6的增益。</p>
+<h2 id="向量的模"><a href="#向量的模" class="headerlink" title="向量的模"></a>向量的模</h2><p>$$<br>||X||=\sqrt{x_1^2+x_2^2+…+x_n^2}<br>$$</p>
+<h2 id="softmax函数"><a href="#softmax函数" class="headerlink" title="softmax函数"></a>softmax函数</h2><p>Softmax函数，或称归一化指数函数，是逻辑函数的一种推广。它能将一个含任意实数的K维向量“压缩”到另一个K维实向量中，使得每一个元素的范围都在(0, 1)之间，并且所有元素的和为1。<br>$$<br>S_i=\frac{e^{V_i}}{\sum_i^C{e^{V_i}}}<br>$$<br>Vi 是分类器前级输出单元的输出。i 表示类别索引，总的类别个数为 C。Si 表示的是当前元素的指数与所有元素指数和的比值。</p>
+<h2 id="残差"><a href="#残差" class="headerlink" title="残差"></a>残差</h2><p>真实值和预测值的差<br>$$<br>y_i-F(x_i)<br>$$</p>
+<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><table>
+<thead>
+<tr>
+<th>生成算法</th>
+<th>划分标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID3</td>
+<td>信息增益</td>
+</tr>
+<tr>
+<td>C4.5</td>
+<td>信息增益率</td>
+</tr>
+<tr>
+<td>CART</td>
+<td>基尼指数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ol>
+<li>分类决策树</li>
+<li>回归决策树</li>
 </ol>
-<p>SimRank应用于可以构建二部图的推荐场景。所谓<strong>二部图</strong>就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，二部图的子集内部没有边连接。左边的用户节点形成一个点集，右边的物品节点行形成另一个点集，用户和物品之间的购买行为则构成了二部图的边。</p>
-<p><img src="/images/bi_graph.jpg" alt="图1 二部图" title="图1 二部图"></p>
-<p>通过SimRank，我们可以得到用户之间的相似度，以及物品之间的相似度，继而进行一些实际的推荐应用。</p>
-<a id="more"></a>
-<h2 id="Bipartite-SimRank（朴素SimRank）"><a href="#Bipartite-SimRank（朴素SimRank）" class="headerlink" title="Bipartite SimRank（朴素SimRank）"></a>Bipartite SimRank（朴素SimRank）</h2><p>Bipartite SimRank就是原始SimRank基于二部图的实现模型，即朴素SimRank。（原始SimRank是利用有向图解决结构化文本相似度的理论模型）[4]</p>
-<p>设二部图为$G(V,E)$，其中$V$是节点集合，$E$是边集合。A和B为任意两个用户，对于用户集合中两个用户的相似度公式为：</p>
-<p>$$<br>s(A,B)=\frac{C_1}{|O(A)||O(B)|}\sum_{i=1}^{|O(A)|}\sum_{j=1}^{|O(B)|}s(O_i(A), O_j(B))<br>\tag{1}<br>$$</p>
-<p>设c和d为任意两个物品，对于物品集合中两个物品的相似度公式为：</p>
-<p>$$<br>s(c,d)=\frac{C_2}{|I(c)||I(d)|}\sum_{i=1}^{|I(c)|}\sum_{j=1}^{|I(d)|}s(I_i(c), I_j(d))<br>\tag{2}<br>$$</p>
-<p>其中$I(a)$为节点a的入邻节点，$O(a)$为出邻节点，$C_1$和$C_2$为阻尼系数。</p>
-<p>综上可以看出，式(1)和式(2)非常相似。所以我们可以将有向二部图看成无向图，即删去边的方向。所有节点通过边相连的节点都视为其的入邻节点。另外一般赋值$C_1=C_2=C$。于是朴素SimRank的公式如下：</p>
-<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b})\\<br>    1 &amp; (a=b)<br>\end{cases}<br>$$<br>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
-<p>其中$s_k(x,y)$表示第k轮迭代中两个节点的相似度。</p>
-<h3 id="矩阵化"><a href="#矩阵化" class="headerlink" title="矩阵化"></a>矩阵化</h3><p>为方便计算和分布式实现，需要将上式转化为矩阵计算。注意到上式可以转化为：</p>
-<p>$$<br>\begin{aligned}<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \\<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\end{aligned}<br>\tag{3}<br>$$</p>
-<p>其中$V$是二部图节点集合，$k$是当前迭代的轮数，$v_i$为$V$中第$i$个节点。$p(v_i,a)$表示节点$v_i$到节点$a$的转移概率，其公式为：</p>
-<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\begin{cases}<br>    1 &amp; x和y相邻 \\<br>    0 &amp; x和y不相邻<br>\end{cases}<br>$$</p>
-<p>于是，节点间的相似度矩阵S的计算公式为：</p>
-<p>$$<br>S_k=\begin{cases}<br>    CP^TS_{k-1}P+I_n-Diag(diag(CP^TS_kP)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
-<p>其中，矩阵S的元素$s_{i,j}=s(i,j)$，节点间的相似度。$P$是二部图的邻接矩阵按行归一化后的转移概率矩阵，即$P$每一行元素和为1。$I_n$是$n*n$的单位矩阵。$diag(M)$函数是取矩阵M的对角向量，$Diag(V)$是将向量V转为一个对角矩阵。因为相似度矩阵S中，节点自己与自己的相似度为1，所以需要加入修正项。</p>
-<h2 id="SimRank"><a href="#SimRank" class="headerlink" title="SimRank++"></a>SimRank++</h2><p>朴素SimRank会有以下存在问题。</p>
-<ol>
-<li>节点的（另一个子集）连接节点集合越大，则与这个节点相似的节点相似度会越小。</li>
-<li>没有考虑边的差异，即没有考虑边的权重。</li>
+<blockquote>
+<p>回归树<br><a href="https://blog.csdn.net/weixin_40604987/article/details/79296427" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40604987/article/details/79296427</a></p>
+</blockquote>
+<h2 id="boosting集成学习算法"><a href="#boosting集成学习算法" class="headerlink" title="boosting集成学习算法"></a>boosting集成学习算法</h2><p>原始的boosting算法开始时，为每一个样本赋上一个权重值。在每一步训练中得到的模型，会使得数据点的估计有对有错，在每一步结束后，增加分错的点的权重，减少分对的点的权重，这样使得某些点如果老是被分错，那么就会被“严重关注”，也就被赋上一个很高的权重。然后等进行了N次迭代（由用户指定），将会得到N个简单的分类器（basic learner），然后我们将它们组合起来（比如说可以对它们进行加权、或者让它们进行投票等），得到一个最终的模型。</p>
+<h2 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h2><blockquote>
+<p><a href="https://www.zybuluo.com/Dounm/note/1031900" target="_blank" rel="noopener">https://www.zybuluo.com/Dounm/note/1031900</a><br><a href="https://blog.csdn.net/Gavin__Zhou/article/details/71156715" target="_blank" rel="noopener">https://blog.csdn.net/Gavin__Zhou/article/details/71156715</a></p>
+</blockquote>
+<p>GBDT是Gradient Boosting和boosting tree的结合，基学习器是树，CART树，loss函数不定。<br>训练时采用前向分步算法。</p>
+<h3 id="Gradient-Boosting"><a href="#Gradient-Boosting" class="headerlink" title="Gradient Boosting"></a>Gradient Boosting</h3><p>Gradient Boosting是boosting提升算法的一种。<br>GBDT是Gradient Boosting算法的一种实现。<br>它主要的思想是，每一次建立模型是在之前建立模型损失函数的梯度下降方向。损失函数是评价模型性能（一般为拟合程度+正则项），认为损失函数越小，性能越好。而让损失函数持续下降，就能使得模型不断改性提升性能，其最好的方法就是使损失函数沿着梯度方向下降（讲道理梯度方向上下降最快）。</p>
+<h3 id="boosting-tree"><a href="#boosting-tree" class="headerlink" title="boosting tree"></a>boosting tree</h3><p>以分类决策树或回归决策树为基学习器的boosting算法被称为提升树（Boosting Tree）</p>
+<h3 id="加法模型（一种理解）"><a href="#加法模型（一种理解）" class="headerlink" title="加法模型（一种理解）"></a>加法模型（一种理解）</h3><p>最终结果是M个基学习器结果求和得到。<br>$$<br>\hat{y_i} = \sum_{k=1}^M{f_k(x_i)}<br>$$</p>
+<p>$f_k(x_i)$是第k个学习器</p>
+<h3 id="前向分步算法"><a href="#前向分步算法" class="headerlink" title="前向分步算法"></a>前向分步算法</h3><ol>
+<li>初始化$f_0(x)=0$</li>
+<li>第t步时，得到第t个模型$f_t(x)=f_{t-1}(x)+T(x;\gamma_t)$</li>
+<li>第t步的目标函数是$(\gamma_t)=argmin\sum_{i=1}^N{L(y_i, f_{t-1}(x_i)+T(x_i;\gamma_t))}$</li>
+<li>最终模型就是等于最后一步得到的模型$f(x)=f_M(x)=\sum_{t=1}^M{T(x;\gamma_t)}$</li>
 </ol>
-<p>为了解决这些问题，Antonellis等提出了SimRank++算法[3]。其主要做了以下两点<br>改进。</p>
-<ol>
-<li>考虑节点相似度证据。</li>
-<li>加入边的权重。</li>
-</ol>
-<h3 id="节点相似度证据"><a href="#节点相似度证据" class="headerlink" title="节点相似度证据"></a>节点相似度证据</h3><p>对于为什么加入节点相似度，请阅读文章[1]第三章的例子，本文不再赘述。简单的来说就是，关系越简单（相连边少）的节点更容易与其他节点相似，关系越复杂（相连边多）的节点更难与其他节点相似，朴素SimRank缺乏考虑节点的共同相邻点集的大小。</p>
-<p>对于节点a和b，他们的相似度证据为：</p>
-<p>$$<br>evidence(a,b)=\sum_{i=1}^{|E(a)\cap{E(b)}|}\frac{1}{2^i}<br>$$</p>
-<p>其中$E(a)$表示节点的相邻节点集。可以看到相似度证据是个小于1的值，当a与b的共同相连点集最大，相似度证据越大。</p>
-<p>于是带证据的相似度公式为：</p>
-<p>$$<br>s_{evidence}(a, b)=evidence(a,b)\cdot{s(a,b)}<br>$$</p>
-<p>因为SimRank有多轮迭代，而相似度证据只需要计算一次，所以节点相似度证据在SimRank迭代完最后再计算。</p>
-<h3 id="加入边的权重"><a href="#加入边的权重" class="headerlink" title="加入边的权重"></a>加入边的权重</h3><p>在互联网广告中，用户点击1次商品A和点击1000次商品B的意义是不同的，显然商品B对于用户更相关。同样的，用户A点击1次商品i，而用户B点击100次商品i，用户C点击100次商品j，用户D点击100次商品j，我们可以得出用户C和D更相似，而A和B则不相似。所以边的权重是非常重要的因素，SimRank考虑边的权重是必要的。</p>
-<p>朴素SimRank中式(4)表示了节点之间的转移概率，每条边的权重都为1，表示节点间有无边相连。现我们将边的权重设为边的数量，即节点间的连接数（例子中点击的数量），然后归一化。改进后的节点间的带权转移概率为：</p>
-<p>$$<br>p_w(x,y)=e^{-var(y)}\frac{w(x,y)}{\sum_{i=1}^{|V|}w(x,v_i)}<br>$$<br>$$<br>特别p_w(x,x)=1-\sum_{i=1}^{|V|}p_w(x, v_i)<br>$$<br>$$<br>var(y)=\frac{\sum_i^{|E(y)|}(w(E_i(y),y)-\mu_y)^2}{|E(y)|}<br>$$</p>
-<p>其中$w(x,y)$表示节点x和y之间的边数（x对y的点击数）。$var(y)$即y的所有邻边的权重方差，可见方差越大，权重越小。</p>
-<p>于是，节点间的相似度矩阵S的计算公式改为：</p>
-<p>$$<br>S_k=\begin{cases}<br>    CW^TS_{k-1}W+I_n-Diag(diag(CW^TS_kW)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
-<p>$W$是二部图的带权转移概率矩阵，元素就是$p_w(i,j)$。</p>
-<h3 id="完整SimRank-算法步骤"><a href="#完整SimRank-算法步骤" class="headerlink" title="完整SimRank++算法步骤"></a>完整SimRank++算法步骤</h3><p>输入: 阻尼系数$C$，迭代词数$k$，带权转移矩阵$W$，证据矩阵$V$<br>输出: 节点相似度矩阵$S$<br>程序:  </p>
-<ol>
-<li>$S = I_n$</li>
-<li>for 第i次迭代<br>$temp=CW^TSW$<br>$S=temp+I_n-Diag(diag(temp))$<br>end for  </li>
-<li>$S=S*V$</li>
-</ol>
-<h2 id="python-demo"><a href="#python-demo" class="headerlink" title="python demo"></a>python demo</h2><p>更新中</p>
-<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p>Q: SimRank与协同过滤等传统推荐算法相比有什么优点和缺点？</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a href="http://xudongyang.coding.me/simrank-plus-plus/" target="_blank" rel="noopener">http://xudongyang.coding.me/simrank-plus-plus/</a><br>[2] <a href="https://www.cnblogs.com/zhangchaoyang/articles/4575809.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhangchaoyang/articles/4575809.html</a><br>[3] <a href="http://www.vldb.org/pvldb/1/1453903.pdf" target="_blank" rel="noopener">Simrank++: Query Rewriting through Link Analysis of the Click Graph</a><br>[4] <a href="http://ilpubs.stanford.edu:8090/508/1/2001-41.pdf" target="_blank" rel="noopener">SimRank: A Measure of Structural-Context Similarity</a></p>
+<p>$T(x;\gamma_t)$是基学习器，$\gamma_t$是基学习器参数。<br>每一步得到的模型是累加的结果，每一步求解的是$T(x;\gamma_t)$。</p>
+<h3 id="GBDT的目标函数"><a href="#GBDT的目标函数" class="headerlink" title="GBDT的目标函数"></a>GBDT的目标函数</h3><h2 id="xgboost"><a href="#xgboost" class="headerlink" title="xgboost"></a>xgboost</h2><blockquote>
+<p><a href="https://blog.csdn.net/qdbszsj/article/details/79615712" target="_blank" rel="noopener">https://blog.csdn.net/qdbszsj/article/details/79615712</a></p>
+</blockquote>
 
       
     </div>
@@ -451,18 +469,27 @@
       
         <div class="post-tags">
           
-            <a href="/tags/推荐算法/" rel="tag"># 推荐算法</a>
-          
-            <a href="/tags/simrank/" rel="tag"># simrank</a>
-          
-            <a href="/tags/协同过滤/" rel="tag"># 协同过滤</a>
-          
-            <a href="/tags/广告算法/" rel="tag"># 广告算法</a>
+            <a href="/tags/machine-learning/" rel="tag"># machine_learning</a>
           
         </div>
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
       
       
 
@@ -470,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/git_ssh_keygen/" rel="next" title="git同时配置gitee和github免秘钥">
-                <i class="fa fa-chevron-left"></i> git同时配置gitee和github免秘钥
+              <a href="/2018/11/05/markdown/" rel="next" title="Markdown Learning Notes">
+                <i class="fa fa-chevron-left"></i> Markdown Learning Notes
               </a>
             
           </div>
@@ -480,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hiveSQL/" rel="prev" title="hive SQL">
-                hive SQL <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/09/maven_package_local_jar/" rel="prev" title="idea maven打包加载本地jar包">
+                idea maven打包加载本地jar包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -638,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SimRank算法原理"><span class="nav-number">1.</span> <span class="nav-text">SimRank算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bipartite-SimRank（朴素SimRank）"><span class="nav-number">1.1.</span> <span class="nav-text">Bipartite SimRank（朴素SimRank）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵化"><span class="nav-number">1.1.1.</span> <span class="nav-text">矩阵化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SimRank"><span class="nav-number">1.2.</span> <span class="nav-text">SimRank++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点相似度证据"><span class="nav-number">1.2.1.</span> <span class="nav-text">节点相似度证据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入边的权重"><span class="nav-number">1.2.2.</span> <span class="nav-text">加入边的权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整SimRank-算法步骤"><span class="nav-number">1.2.3.</span> <span class="nav-text">完整SimRank++算法步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-demo"><span class="nav-number">1.3.</span> <span class="nav-text">python demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延伸思考"><span class="nav-number">1.4.</span> <span class="nav-text">延伸思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.5.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习笔记"><span class="nav-number">1.</span> <span class="nav-text">机器学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特征工程"><span class="nav-number">1.1.</span> <span class="nav-text">特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#归一化"><span class="nav-number">1.1.1.</span> <span class="nav-text">归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评估指标"><span class="nav-number">1.2.</span> <span class="nav-text">评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类指标"><span class="nav-number">1.2.1.</span> <span class="nav-text">分类指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准确率和召回率"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">准确率和召回率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#F1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AUC"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">AUC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#logloss"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">logloss</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归指标"><span class="nav-number">1.2.2.</span> <span class="nav-text">回归指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MAE"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">MAE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RMSE"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">RMSE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序指标"><span class="nav-number">1.2.3.</span> <span class="nav-text">排序指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MAP"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">MAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NDCG"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">NDCG</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CG"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">CG</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DCG"><span class="nav-number">1.2.3.2.2.</span> <span class="nav-text">DCG</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NDCG-1"><span class="nav-number">1.2.3.2.3.</span> <span class="nav-text">NDCG</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量的模"><span class="nav-number">1.3.</span> <span class="nav-text">向量的模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#softmax函数"><span class="nav-number">1.4.</span> <span class="nav-text">softmax函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#残差"><span class="nav-number">1.5.</span> <span class="nav-text">残差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树"><span class="nav-number">1.6.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型"><span class="nav-number">1.6.1.</span> <span class="nav-text">类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boosting集成学习算法"><span class="nav-number">1.7.</span> <span class="nav-text">boosting集成学习算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT"><span class="nav-number">1.8.</span> <span class="nav-text">GBDT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Boosting"><span class="nav-number">1.8.1.</span> <span class="nav-text">Gradient Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boosting-tree"><span class="nav-number">1.8.2.</span> <span class="nav-text">boosting tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加法模型（一种理解）"><span class="nav-number">1.8.3.</span> <span class="nav-text">加法模型（一种理解）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向分步算法"><span class="nav-number">1.8.4.</span> <span class="nav-text">前向分步算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBDT的目标函数"><span class="nav-number">1.8.5.</span> <span class="nav-text">GBDT的目标函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xgboost"><span class="nav-number">1.9.</span> <span class="nav-text">xgboost</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -699,6 +726,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -948,6 +981,43 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

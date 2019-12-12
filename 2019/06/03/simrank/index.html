@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git,ssh,keygen,">
+  <meta name="keywords" content="推荐算法,simrank,协同过滤,广告算法,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="multi git ssh keygen">
-<meta name="keywords" content="git,ssh,keygen">
+<meta name="description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
+<meta name="keywords" content="推荐算法,simrank,协同过滤,广告算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git同时配置gitee和github免秘钥">
-<meta property="og:url" content="http://yellowzp.com/git_ssh_keygen/index.html">
+<meta property="og:title" content="SimRank算法原理">
+<meta property="og:url" content="http://yellowzp.com/2019/06/03/simrank/index.html">
 <meta property="og:site_name" content="yellowzp">
-<meta property="og:description" content="multi git ssh keygen">
+<meta property="og:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T15:27:06.165Z">
+<meta property="og:image" content="http://yellowzp.com/images/bi_graph.jpg">
+<meta property="og:updated_time" content="2019-12-09T11:30:16.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git同时配置gitee和github免秘钥">
-<meta name="twitter:description" content="multi git ssh keygen">
+<meta name="twitter:title" content="SimRank算法原理">
+<meta name="twitter:description" content="SimRank算法原理SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，">
+<meta name="twitter:image" content="http://yellowzp.com/images/bi_graph.jpg">
 
 
 
@@ -122,12 +124,12 @@
 
 
 
-  <link rel="canonical" href="http://yellowzp.com/git_ssh_keygen/">
+  <link rel="canonical" href="http://yellowzp.com/2019/06/03/simrank/">
 
 
 
 
-  <title>git同时配置gitee和github免秘钥 | yellowzp</title>
+  <title>SimRank算法原理 | yellowzp</title>
   
 
 
@@ -274,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yellowzp.com/git_ssh_keygen/">
+    <link itemprop="mainEntityOfPage" href="http://yellowzp.com/2019/06/03/simrank/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vesper Huang">
@@ -291,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git同时配置gitee和github免秘钥</h1>
+          <h1 class="post-title" itemprop="name headline">SimRank算法原理</h1>
         
 
         <div class="post-meta">
@@ -303,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T11:26:00+08:00">
-                2019-04-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T18:15:00+08:00">
+                2019-06-03
               </time>
             
 
@@ -326,8 +328,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
+                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
+                    <span itemprop="name">推荐算法</span>
                   </a>
                 </span>
 
@@ -343,7 +345,7 @@
 
           
           
-             <span id="/git_ssh_keygen/" class="leancloud_visitors" data-flag-title="git同时配置gitee和github免秘钥">
+             <span id="/2019/06/03/simrank/" class="leancloud_visitors" data-flag-title="SimRank算法原理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -374,13 +376,65 @@
       
 
       
-        <h1 id="multi-git-ssh-keygen"><a href="#multi-git-ssh-keygen" class="headerlink" title="multi git ssh keygen"></a>multi git ssh keygen</h1><a id="more"></a>
-<h2 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "xxx@gmail.com"</span><br></pre></td></tr></table></figure>
-<h2 id="gitee和github同时绑定"><a href="#gitee和github同时绑定" class="headerlink" title="gitee和github同时绑定"></a>gitee和github同时绑定</h2><p>1 生成两份ssh秘钥, 在用户的.ssh目录下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id_rsa_gitee</span><br><span class="line">id_rsa_gitee.pub</span><br><span class="line">id_rsa_github</span><br><span class="line">id_rsa_github.pub</span><br></pre></td></tr></table></figure>
-<p>2 将.pub文件中所有内容加到gitee和github账户中<br>3 在用户的.ssh目录下创建config文件，代码如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置github.com</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    IdentityFile C:\\Users\\yourname\\.ssh\\id_rsa_github</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    User xxx@gmail.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 配置gitee.com</span><br><span class="line">Host gitee.com</span><br><span class="line">    HostName gitee.com</span><br><span class="line">    IdentityFile C:\\Users\\yourname\\.ssh\\id_rsa_gitee</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    User xxx@126.com</span><br></pre></td></tr></table></figure>
-<h2 id="检测是否成功"><a href="#检测是否成功" class="headerlink" title="检测是否成功"></a>检测是否成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+        <h1 id="SimRank算法原理"><a href="#SimRank算法原理" class="headerlink" title="SimRank算法原理"></a>SimRank算法原理</h1><p>SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：</p>
+<ol>
+<li>如果两个用户相似，则与这两个用户相关联的物品也类似；</li>
+<li>如果两个物品类似，则与这两个物品相关联的用户也类似。</li>
+</ol>
+<p>SimRank应用于可以构建二部图的推荐场景。所谓<strong>二部图</strong>就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，二部图的子集内部没有边连接。左边的用户节点形成一个点集，右边的物品节点行形成另一个点集，用户和物品之间的购买行为则构成了二部图的边。</p>
+<p><img src="/images/bi_graph.jpg" alt="图1 二部图" title="图1 二部图"></p>
+<p>通过SimRank，我们可以得到用户之间的相似度，以及物品之间的相似度，继而进行一些实际的推荐应用。</p>
+<a id="more"></a>
+<h2 id="Bipartite-SimRank（朴素SimRank）"><a href="#Bipartite-SimRank（朴素SimRank）" class="headerlink" title="Bipartite SimRank（朴素SimRank）"></a>Bipartite SimRank（朴素SimRank）</h2><p>Bipartite SimRank就是原始SimRank基于二部图的实现模型，即朴素SimRank。（原始SimRank是利用有向图解决结构化文本相似度的理论模型）[4]</p>
+<p>设二部图为$G(V,E)$，其中$V$是节点集合，$E$是边集合。A和B为任意两个用户，对于用户集合中两个用户的相似度公式为：</p>
+<p>$$<br>s(A,B)=\frac{C_1}{|O(A)||O(B)|}\sum_{i=1}^{|O(A)|}\sum_{j=1}^{|O(B)|}s(O_i(A), O_j(B))<br>\tag{1}<br>$$</p>
+<p>设c和d为任意两个物品，对于物品集合中两个物品的相似度公式为：</p>
+<p>$$<br>s(c,d)=\frac{C_2}{|I(c)||I(d)|}\sum_{i=1}^{|I(c)|}\sum_{j=1}^{|I(d)|}s(I_i(c), I_j(d))<br>\tag{2}<br>$$</p>
+<p>其中$I(a)$为节点a的入邻节点，$O(a)$为出邻节点，$C_1$和$C_2$为阻尼系数。</p>
+<p>综上可以看出，式(1)和式(2)非常相似。所以我们可以将有向二部图看成无向图，即删去边的方向。所有节点通过边相连的节点都视为其的入邻节点。另外一般赋值$C_1=C_2=C$。于是朴素SimRank的公式如下：</p>
+<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b})\\<br>    1 &amp; (a=b)<br>\end{cases}<br>$$<br>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
+<p>其中$s_k(x,y)$表示第k轮迭代中两个节点的相似度。</p>
+<h3 id="矩阵化"><a href="#矩阵化" class="headerlink" title="矩阵化"></a>矩阵化</h3><p>为方便计算和分布式实现，需要将上式转化为矩阵计算。注意到上式可以转化为：</p>
+<p>$$<br>\begin{aligned}<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \\<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\end{aligned}<br>\tag{3}<br>$$</p>
+<p>其中$V$是二部图节点集合，$k$是当前迭代的轮数，$v_i$为$V$中第$i$个节点。$p(v_i,a)$表示节点$v_i$到节点$a$的转移概率，其公式为：</p>
+<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\begin{cases}<br>    1 &amp; x和y相邻 \\<br>    0 &amp; x和y不相邻<br>\end{cases}<br>$$</p>
+<p>于是，节点间的相似度矩阵S的计算公式为：</p>
+<p>$$<br>S_k=\begin{cases}<br>    CP^TS_{k-1}P+I_n-Diag(diag(CP^TS_kP)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
+<p>其中，矩阵S的元素$s_{i,j}=s(i,j)$，节点间的相似度。$P$是二部图的邻接矩阵按行归一化后的转移概率矩阵，即$P$每一行元素和为1。$I_n$是$n*n$的单位矩阵。$diag(M)$函数是取矩阵M的对角向量，$Diag(V)$是将向量V转为一个对角矩阵。因为相似度矩阵S中，节点自己与自己的相似度为1，所以需要加入修正项。</p>
+<h2 id="SimRank"><a href="#SimRank" class="headerlink" title="SimRank++"></a>SimRank++</h2><p>朴素SimRank会有以下存在问题。</p>
+<ol>
+<li>节点的（另一个子集）连接节点集合越大，则与这个节点相似的节点相似度会越小。</li>
+<li>没有考虑边的差异，即没有考虑边的权重。</li>
+</ol>
+<p>为了解决这些问题，Antonellis等提出了SimRank++算法[3]。其主要做了以下两点<br>改进。</p>
+<ol>
+<li>考虑节点相似度证据。</li>
+<li>加入边的权重。</li>
+</ol>
+<h3 id="节点相似度证据"><a href="#节点相似度证据" class="headerlink" title="节点相似度证据"></a>节点相似度证据</h3><p>对于为什么加入节点相似度，请阅读文章[1]第三章的例子，本文不再赘述。简单的来说就是，关系越简单（相连边少）的节点更容易与其他节点相似，关系越复杂（相连边多）的节点更难与其他节点相似，朴素SimRank缺乏考虑节点的共同相邻点集的大小。</p>
+<p>对于节点a和b，他们的相似度证据为：</p>
+<p>$$<br>evidence(a,b)=\sum_{i=1}^{|E(a)\cap{E(b)}|}\frac{1}{2^i}<br>$$</p>
+<p>其中$E(a)$表示节点的相邻节点集。可以看到相似度证据是个小于1的值，当a与b的共同相连点集最大，相似度证据越大。</p>
+<p>于是带证据的相似度公式为：</p>
+<p>$$<br>s_{evidence}(a, b)=evidence(a,b)\cdot{s(a,b)}<br>$$</p>
+<p>因为SimRank有多轮迭代，而相似度证据只需要计算一次，所以节点相似度证据在SimRank迭代完最后再计算。</p>
+<h3 id="加入边的权重"><a href="#加入边的权重" class="headerlink" title="加入边的权重"></a>加入边的权重</h3><p>在互联网广告中，用户点击1次商品A和点击1000次商品B的意义是不同的，显然商品B对于用户更相关。同样的，用户A点击1次商品i，而用户B点击100次商品i，用户C点击100次商品j，用户D点击100次商品j，我们可以得出用户C和D更相似，而A和B则不相似。所以边的权重是非常重要的因素，SimRank考虑边的权重是必要的。</p>
+<p>朴素SimRank中式(4)表示了节点之间的转移概率，每条边的权重都为1，表示节点间有无边相连。现我们将边的权重设为边的数量，即节点间的连接数（例子中点击的数量），然后归一化。改进后的节点间的带权转移概率为：</p>
+<p>$$<br>p_w(x,y)=e^{-var(y)}\frac{w(x,y)}{\sum_{i=1}^{|V|}w(x,v_i)}<br>$$<br>$$<br>特别p_w(x,x)=1-\sum_{i=1}^{|V|}p_w(x, v_i)<br>$$<br>$$<br>var(y)=\frac{\sum_i^{|E(y)|}(w(E_i(y),y)-\mu_y)^2}{|E(y)|}<br>$$</p>
+<p>其中$w(x,y)$表示节点x和y之间的边数（x对y的点击数）。$var(y)$即y的所有邻边的权重方差，可见方差越大，权重越小。</p>
+<p>于是，节点间的相似度矩阵S的计算公式改为：</p>
+<p>$$<br>S_k=\begin{cases}<br>    CW^TS_{k-1}W+I_n-Diag(diag(CW^TS_kW)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
+<p>$W$是二部图的带权转移概率矩阵，元素就是$p_w(i,j)$。</p>
+<h3 id="完整SimRank-算法步骤"><a href="#完整SimRank-算法步骤" class="headerlink" title="完整SimRank++算法步骤"></a>完整SimRank++算法步骤</h3><p>输入: 阻尼系数$C$，迭代词数$k$，带权转移矩阵$W$，证据矩阵$V$<br>输出: 节点相似度矩阵$S$<br>程序:  </p>
+<ol>
+<li>$S = I_n$</li>
+<li>for 第i次迭代<br>$temp=CW^TSW$<br>$S=temp+I_n-Diag(diag(temp))$<br>end for  </li>
+<li>$S=S*V$</li>
+</ol>
+<h2 id="python-demo"><a href="#python-demo" class="headerlink" title="python demo"></a>python demo</h2><p>更新中</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p>Q: SimRank与协同过滤等传统推荐算法相比有什么优点和缺点？</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a href="http://xudongyang.coding.me/simrank-plus-plus/" target="_blank" rel="noopener">http://xudongyang.coding.me/simrank-plus-plus/</a><br>[2] <a href="https://www.cnblogs.com/zhangchaoyang/articles/4575809.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhangchaoyang/articles/4575809.html</a><br>[3] <a href="http://www.vldb.org/pvldb/1/1453903.pdf" target="_blank" rel="noopener">Simrank++: Query Rewriting through Link Analysis of the Click Graph</a><br>[4] <a href="http://ilpubs.stanford.edu:8090/508/1/2001-41.pdf" target="_blank" rel="noopener">SimRank: A Measure of Structural-Context Similarity</a></p>
+
       
     </div>
     
@@ -397,16 +451,33 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/推荐算法/" rel="tag"># 推荐算法</a>
           
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
+            <a href="/tags/simrank/" rel="tag"># simrank</a>
           
-            <a href="/tags/keygen/" rel="tag"># keygen</a>
+            <a href="/tags/协同过滤/" rel="tag"># 协同过滤</a>
+          
+            <a href="/tags/广告算法/" rel="tag"># 广告算法</a>
           
         </div>
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
       
       
 
@@ -414,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/maven_package_local_jar/" rel="next" title="idea maven打包加载本地jar包">
-                <i class="fa fa-chevron-left"></i> idea maven打包加载本地jar包
+              <a href="/2019/04/16/git_ssh_keygen/" rel="next" title="git同时配置gitee和github免秘钥">
+                <i class="fa fa-chevron-left"></i> git同时配置gitee和github免秘钥
               </a>
             
           </div>
@@ -424,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/simrank/" rel="prev" title="SimRank算法原理">
-                SimRank算法原理 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/14/hiveSQL/" rel="prev" title="hive SQL">
+                hive SQL <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -582,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#multi-git-ssh-keygen"><span class="nav-number">1.</span> <span class="nav-text">multi git ssh keygen</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成秘钥"><span class="nav-number">1.1.</span> <span class="nav-text">生成秘钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitee和github同时绑定"><span class="nav-number">1.2.</span> <span class="nav-text">gitee和github同时绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测是否成功"><span class="nav-number">1.3.</span> <span class="nav-text">检测是否成功</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SimRank算法原理"><span class="nav-number">1.</span> <span class="nav-text">SimRank算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bipartite-SimRank（朴素SimRank）"><span class="nav-number">1.1.</span> <span class="nav-text">Bipartite SimRank（朴素SimRank）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵化"><span class="nav-number">1.1.1.</span> <span class="nav-text">矩阵化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SimRank"><span class="nav-number">1.2.</span> <span class="nav-text">SimRank++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点相似度证据"><span class="nav-number">1.2.1.</span> <span class="nav-text">节点相似度证据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入边的权重"><span class="nav-number">1.2.2.</span> <span class="nav-text">加入边的权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整SimRank-算法步骤"><span class="nav-number">1.2.3.</span> <span class="nav-text">完整SimRank++算法步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-demo"><span class="nav-number">1.3.</span> <span class="nav-text">python demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延伸思考"><span class="nav-number">1.4.</span> <span class="nav-text">延伸思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.5.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -643,6 +714,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -893,8 +970,65 @@
 
   
   
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
   
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
