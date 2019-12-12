@@ -480,6 +480,9 @@
           
 
   
+   <div id="gitalk-container"></div>
+
+  
 
 
 
@@ -793,6 +796,23 @@
 
 
 
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '1a7029efd7d6a04cec4b',
+          clientSecret: '33f884782d2a758130f7362325aa5312d7be8134',
+          repo: 'yellowzp.github.io',
+          owner: 'yellowzp',
+          admin: ['yellowzp'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
