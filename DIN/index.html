@@ -88,7 +88,7 @@
 <meta property="og:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yellowzp.github.io/images/DIN.jpg">
-<meta property="og:updated_time" content="2019-12-20T06:47:34.412Z">
+<meta property="og:updated_time" content="2019-12-20T06:50:54.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DIN学习笔记">
 <meta name="twitter:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
@@ -392,7 +392,7 @@
 <p>用户行为特征向量再与其他特征的embedding向量进行concat&amp;flaten，形成MLP的输入向量。</p>
 <p>（3）MLP</p>
 <p>这里损失函数用的是log损失：</p>
-<p>$$<br>L=-\frac{1}{N}\sum_{(\textbf{x},y)\isin{S}}(y\log{p(\textbf{x})}+(1-y)\log{(1-p(\textbf{x}))}<br>$$</p>
+<p>$$<br>L=-\frac{1}{N}\sum_{(\textbf{x},y)\in{S}}(y\log{p(\textbf{x})}+(1-y)\log{(1-p(\textbf{x}))}<br>$$</p>
 <h3 id="2-2-DIN模型"><a href="#2-2-DIN模型" class="headerlink" title="2.2 DIN模型"></a>2.2 DIN模型</h3><p>DIN模型在基准模型的基础上，增加了一个激活单元，在保证用户行为多样性（diverse）的同时，实现了对于不同候选广告，局部激活（local activation）用户兴趣的特性。即为用户行为中每个商品与候选广告通过激活单元计算出一个激活权重。用户行为中的商品乘以权重再进行sum pooling。</p>
 <p>激活单元是一个前馈网络，输入是商品的embedding向量和候选广告的embedding向量。进入单元后，两个向量求外积（out product），与两个向量本身concat形成神经网络输入层。最后输出层只有一个节点，即对隐层的输出带权求和，最终得到该商品的激活权重。注意，这里的外积并不是向量外积，而是指计算机定义的外积。在作者的实现开源代码中，商品向量和广告向量的元素相乘得到一个向量，元素相减得到一个向量，用这两个得到的向量作为外积，与商品向量和广告向量concat。</p>
 <h2 id="3-训练技术"><a href="#3-训练技术" class="headerlink" title="3. 训练技术"></a>3. 训练技术</h2><p>在提出DIN模型之外，论文提出了两个训练技术。一个是最小batch适度正则项，一个是DICE激活函数。作者给出的DIN源码中其实都没有用到这两个技术，可以说是作者在模型试验中得到的一些trick。对于DIN模型本身，并不是一块重要的内容。</p>
