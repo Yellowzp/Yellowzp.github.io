@@ -88,7 +88,7 @@
 <meta property="og:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yellowzp.github.io/images/DIN.jpg">
-<meta property="og:updated_time" content="2019-12-20T06:38:58.817Z">
+<meta property="og:updated_time" content="2019-12-20T06:47:34.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DIN学习笔记">
 <meta name="twitter:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
@@ -382,9 +382,9 @@
 <p>最近广告这边没什么大需求，同时本人又进行了一次推荐广告的串讲，广告场景中点击率预估目前主要用到了DIN模型，于是顺水推舟看了DIN论文。</p>
 <a id="more"></a>
 <h2 id="2-模型结构"><a href="#2-模型结构" class="headerlink" title="2. 模型结构"></a>2. 模型结构</h2><p><img src="/images/DIN.jpg" alt="图1" title="图1 DIN"></p>
-<h3 id="2-1-base-model"><a href="#2-1-base-model" class="headerlink" title="2.1 base model"></a>2.1 base model</h3><p>本文之前的点击率预估工作中，深度模型可以总结为：embedding层加上MLP。这种模型本文称之为基准模型（base model）。这种模型的优势是省去了繁琐的特征工程工作，缺点是将目标广告与用户历史上所有浏览过的商品联系在一起了。</p>
+<h3 id="2-1-base-model"><a href="#2-1-base-model" class="headerlink" title="2.1 base model"></a>2.1 base model</h3><p>论文之前的点击率预估工作中，深度模型可以总结为：embedding层加上MLP。这种模型论文称之为基准模型（base model）。这种模型的优势是省去了繁琐的特征工程工作，缺点是将目标广告与用户历史上所有浏览过的商品联系在一起了。</p>
 <p>在将特征传入神经网络前需要将特征进行预处理。文章将特征分为四类：用户特征（user profile feature）、用户行为特征（user behavior feature）、目标广告特征（ad feaure）和上下文特征（context feature）。用户行为特征就是选取一定量的用户浏览商品。离散特征进行one-hot编码。一些离散特征可以进行压缩处理，如年龄特征，每10岁对应一个值，用10位的one-hot向量表示年龄特征。</p>
-<p>另外，本文中说用户行为特征中，形如shop_id的id特征可以将多个id映射成一个multi-hot编码向量，然后传给embedding层。但是文章给出的结构图中并非这样做的。图中先one-hot，再传给embedding层，再concat，然后会记性sum pooling。其实两者等价的操作。我们就按图中的方式理解，其实就是用户行为特征中每个浏览的商品为一个单位，将商品的shop_id、goods_id及cate_id等特征one-hot编码，然后concat成一个向量，用这样的向量表示用户行为特征中的每个商品。</p>
+<p>另外，论文中说用户行为特征中，形如shop_id的id特征可以将多个id映射成一个multi-hot编码向量，然后传给embedding层。但是文章给出的结构图中并非这样做的。图中先one-hot，再传给embedding层，再concat，然后会记性sum pooling。其实两者等价的操作。我们就按图中的方式理解，其实就是用户行为特征中每个浏览的商品为一个单位，将商品的shop_id、goods_id及cate_id等特征one-hot编码，然后concat成一个向量，用这样的向量表示用户行为特征中的每个商品。</p>
 <p>（1）embedding层</p>
 <p>该层负责将高维稀疏one-hot编码向量映射到低维密集向量（dense vector）中。</p>
 <p>（2）池化层和连接层</p>
@@ -392,7 +392,7 @@
 <p>用户行为特征向量再与其他特征的embedding向量进行concat&amp;flaten，形成MLP的输入向量。</p>
 <p>（3）MLP</p>
 <p>这里损失函数用的是log损失：</p>
-<p>$$<br>L=-\frac{1}{N}\sum_{(\bold{x},y)\isin{S}}(y\log{p(\bold{x})}+(1-y)\log{(1-p(\bold{x}))}<br>$$</p>
+<p>$$<br>L=-\frac{1}{N}\sum_{(\textbf{x},y)\isin{S}}(y\log{p(\textbf{x})}+(1-y)\log{(1-p(\textbf{x}))}<br>$$</p>
 <h3 id="2-2-DIN模型"><a href="#2-2-DIN模型" class="headerlink" title="2.2 DIN模型"></a>2.2 DIN模型</h3><p>DIN模型在基准模型的基础上，增加了一个激活单元，在保证用户行为多样性（diverse）的同时，实现了对于不同候选广告，局部激活（local activation）用户兴趣的特性。即为用户行为中每个商品与候选广告通过激活单元计算出一个激活权重。用户行为中的商品乘以权重再进行sum pooling。</p>
 <p>激活单元是一个前馈网络，输入是商品的embedding向量和候选广告的embedding向量。进入单元后，两个向量求外积（out product），与两个向量本身concat形成神经网络输入层。最后输出层只有一个节点，即对隐层的输出带权求和，最终得到该商品的激活权重。注意，这里的外积并不是向量外积，而是指计算机定义的外积。在作者的实现开源代码中，商品向量和广告向量的元素相乘得到一个向量，元素相减得到一个向量，用这两个得到的向量作为外积，与商品向量和广告向量concat。</p>
 <h2 id="3-训练技术"><a href="#3-训练技术" class="headerlink" title="3. 训练技术"></a>3. 训练技术</h2><p>在提出DIN模型之外，论文提出了两个训练技术。一个是最小batch适度正则项，一个是DICE激活函数。作者给出的DIN源码中其实都没有用到这两个技术，可以说是作者在模型试验中得到的一些trick。对于DIN模型本身，并不是一块重要的内容。</p>
@@ -405,9 +405,9 @@
 </ul>
 <p>这里的内积和外积都指特指计算机计算中的方式，与数学上的向量内外积不同。</p>
 <p>计算机向量内积与数学内积一样，就是点积：</p>
-<p>$$<br>\bold{a}\cdot{\bold{b}}=a_1b_1+a_2b_2+a_3b_3<br>$$</p>
+<p>$$<br>\textbf{a}\cdot{\textbf{b}}=a_1b_1+a_2b_2+a_3b_3<br>$$</p>
 <p>计算机外积：</p>
-<p>$$<br>\bold{a}\times{\bold{b}}=[a_1,a_2,a_3]^T\times[b_1,b_2,b_3]=\begin{bmatrix}<br>    a_1b_1 &amp; a_1b_2 &amp; a_1b_3 \\<br>    a_2b_1 &amp; a_2b_2 &amp; a_2b_3 \\<br>    a_3b_1 &amp; a_3b_2 &amp; a_3b_3<br>\end{bmatrix}<br>$$</p>
+<p>$$<br>\textbf{a}\times{\textbf{b}}=[a_1,a_2,a_3]^T\times[b_1,b_2,b_3]=\begin{bmatrix}<br>    a_1b_1 &amp; a_1b_2 &amp; a_1b_3 \\<br>    a_2b_1 &amp; a_2b_2 &amp; a_2b_3 \\<br>    a_3b_1 &amp; a_3b_2 &amp; a_3b_3<br>\end{bmatrix}<br>$$</p>
 <ul>
 <li>激活函数的意义是什么？</li>
 </ul>
