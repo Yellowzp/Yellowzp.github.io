@@ -79,18 +79,15 @@
 
 
 
-<meta name="description" content="Java环境变量配置">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java环境变量配置">
 <meta property="og:url" content="https://yellowzp.github.io/java_env/index.html">
 <meta property="og:site_name" content="yellowzp">
-<meta property="og:description" content="Java环境变量配置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T15:27:06.166Z">
+<meta property="og:updated_time" content="2019-12-23T12:39:29.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java环境变量配置">
-<meta name="twitter:description" content="Java环境变量配置">
 
 
 
@@ -375,29 +372,38 @@
       
 
       
-        <h1 id="Java环境变量配置"><a href="#Java环境变量配置" class="headerlink" title="Java环境变量配置"></a>Java环境变量配置</h1><a id="more"></a>
-<h1 id="作用与意义"><a href="#作用与意义" class="headerlink" title="作用与意义"></a>作用与意义</h1><ul>
-<li><p>JAVA_HOME<br>该环境变量的值就是 Java 所在的目录，一些 Java 版的软件和一些 Java 的工具需要用到该变量，设置 PATH 和 CLASSPATH 的时候，也可以使用该变量以方便设置。</p>
-</li>
-<li><p>PATH<br>指定一个路径列表，用于搜索可执行文件的。执行一个可执行文件时，如果该文件不能在当前路径下找到，则依次寻找 PATH 中的每一个路径，直至找到。或者找完 PATH 中的路径也不能找到，则报错。Java 的编译命令 (javac)，执行命令 (java) 和一些工具命令 (javadoc, jdb 等) 都在其安装路径下的 bin 目录中。因此我们应该将该路径添加到 PATH 变量中。</p>
-</li>
-<li><p>CLASSPATH<br>也指定一个路径列表，是用于搜索 Java 编译或者运行时需要用到的类。在 CLASSPATH 列表中除了可以包含路径外，还可以包含 .jar 文件。Java 查找类时会把这个 .jar 文件当作一个目录来进行查找。通常，我们需要把 JDK 安装路径下的 jre/lib/rt.jar (Linux: jre/lib/rt.jar) 包含在 CLASSPATH 中。</p>
-</li>
+        <!-- # Java环境变量配置 -->
+<a id="more"></a>
+<h2 id="作用与意义"><a href="#作用与意义" class="headerlink" title="作用与意义"></a>作用与意义</h2><ul>
+<li>JAVA_HOME</li>
 </ul>
-<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h1><h2 id="WINDOWS"><a href="#WINDOWS" class="headerlink" title="WINDOWS"></a>WINDOWS</h2><ul>
-<li><p>JAVA_HOME</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.6.0_10</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PATH</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CLASSPATH</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</span><br></pre></td></tr></table></figure>
-</li>
+<p>该环境变量的值就是 Java 所在的目录，一些 Java 版的软件和一些 Java 的工具需要用到该变量，设置 PATH 和 CLASSPATH 的时候，也可以使用该变量以方便设置。</p>
+<ul>
+<li>PATH  </li>
 </ul>
-<h2 id="LINUX"><a href="#LINUX" class="headerlink" title="LINUX"></a>LINUX</h2><p>配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure></p>
-<p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/share/jdk1.5.0_05</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure></p>
-<p>生效命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>指定一个路径列表，用于搜索可执行文件的。执行一个可执行文件时，如果该文件不能在当前路径下找到，则依次寻找 PATH 中的每一个路径，直至找到。或者找完 PATH 中的路径也不能找到，则报错。Java 的编译命令 (javac)，执行命令 (java) 和一些工具命令 (javadoc, jdb 等) 都在其安装路径下的 bin 目录中。因此我们应该将该路径添加到 PATH 变量中。</p>
+<ul>
+<li>CLASSPATH  </li>
+</ul>
+<p>也指定一个路径列表，是用于搜索 Java 编译或者运行时需要用到的类。在 CLASSPATH 列表中除了可以包含路径外，还可以包含 .jar 文件。Java 查找类时会把这个 .jar 文件当作一个目录来进行查找。通常，我们需要把 JDK 安装路径下的 jre/lib/rt.jar (Linux: jre/lib/rt.jar) 包含在 CLASSPATH 中。</p>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><h3 id="WINDOWS"><a href="#WINDOWS" class="headerlink" title="WINDOWS"></a>WINDOWS</h3><ul>
+<li>JAVA_HOME</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.6.0_10</span><br></pre></td></tr></table></figure>
+<ul>
+<li>PATH</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>CLASSPATH</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</span><br></pre></td></tr></table></figure>
+<h3 id="LINUX"><a href="#LINUX" class="headerlink" title="LINUX"></a>LINUX</h3><p>配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>添加</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/share/jdk1.5.0_05</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
+<p>生效命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -555,7 +561,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -610,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java环境变量配置"><span class="nav-number">1.</span> <span class="nav-text">Java环境变量配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用与意义"><span class="nav-number">2.</span> <span class="nav-text">作用与意义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置"><span class="nav-number">3.</span> <span class="nav-text">设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WINDOWS"><span class="nav-number">3.1.</span> <span class="nav-text">WINDOWS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LINUX"><span class="nav-number">3.2.</span> <span class="nav-text">LINUX</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用与意义"><span class="nav-number">1.</span> <span class="nav-text">作用与意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-number">2.</span> <span class="nav-text">设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WINDOWS"><span class="nav-number">2.1.</span> <span class="nav-text">WINDOWS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LINUX"><span class="nav-number">2.2.</span> <span class="nav-text">LINUX</span></a></li></ol></li></ol></div>
             
 
           </div>
