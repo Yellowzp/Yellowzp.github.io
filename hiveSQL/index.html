@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="Hive SQL, 或者叫HQL，和其他SQL语言相似。这篇文章是本人在hive学习和开发中的整理和总结。 1. 表操作1.1. 建表1.1.1. 默认建表12345678910create table if not exists db_name.table_name (    uid bigint comment &apos;uid&apos;,    value bigint comment &apos;value&apos;)c">
 <meta name="keywords" content="hive,sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hive SQL">
 <meta property="og:url" content="https://yellowzp.github.io/hiveSQL/index.html">
 <meta property="og:site_name" content="yellowzp">
+<meta property="og:description" content="Hive SQL, 或者叫HQL，和其他SQL语言相似。这篇文章是本人在hive学习和开发中的整理和总结。 1. 表操作1.1. 建表1.1.1. 默认建表12345678910create table if not exists db_name.table_name (    uid bigint comment &apos;uid&apos;,    value bigint comment &apos;value&apos;)c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-24T01:28:50.563Z">
+<meta property="og:updated_time" content="2019-12-24T01:34:31.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive SQL">
+<meta name="twitter:description" content="Hive SQL, 或者叫HQL，和其他SQL语言相似。这篇文章是本人在hive学习和开发中的整理和总结。 1. 表操作1.1. 建表1.1.1. 默认建表12345678910create table if not exists db_name.table_name (    uid bigint comment &apos;uid&apos;,    value bigint comment &apos;value&apos;)c">
 
 
 
@@ -373,7 +376,6 @@
 
       
         <!-- # hive SQL -->
-<a id="more"></a>
 <p>Hive SQL, 或者叫HQL，和其他SQL语言相似。<br>这篇文章是本人在hive学习和开发中的整理和总结。</p>
 <h2 id="1-表操作"><a href="#1-表操作" class="headerlink" title="1. 表操作"></a>1. 表操作</h2><h3 id="1-1-建表"><a href="#1-1-建表" class="headerlink" title="1.1. 建表"></a>1.1. 建表</h3><h4 id="1-1-1-默认建表"><a href="#1-1-1-默认建表" class="headerlink" title="1.1.1. 默认建表"></a>1.1.1. 默认建表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> db_name.table_name (</span><br><span class="line">    uid <span class="built_in">bigint</span> <span class="keyword">comment</span> <span class="string">'uid'</span>,</span><br><span class="line">    <span class="keyword">value</span> <span class="built_in">bigint</span> <span class="keyword">comment</span> <span class="string">'value'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">comment</span> <span class="string">"table description"</span></span><br><span class="line">partitioned <span class="keyword">by</span> (pt <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span></span><br><span class="line"><span class="keyword">lines</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\n'</span></span><br><span class="line"><span class="keyword">stored</span> <span class="keyword">as</span> orc;  <span class="comment">-- 或者是textfile</span></span><br></pre></td></tr></table></figure>
 <h4 id="1-1-2-AS建表"><a href="#1-1-2-AS建表" class="headerlink" title="1.1.2. AS建表"></a>1.1.2. AS建表</h4><p>只能建内部表，而且不能建分区表。</p>
