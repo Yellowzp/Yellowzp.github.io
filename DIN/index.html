@@ -79,19 +79,16 @@
 
 
 
-<meta name="description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
 <meta name="keywords" content="推荐系统,DIN,点击率预估">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DIN学习笔记">
 <meta property="og:url" content="https://yellowzp.github.io/DIN/index.html">
 <meta property="og:site_name" content="yellowzp">
-<meta property="og:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yellowzp.github.io/images/DIN.jpg">
-<meta property="og:updated_time" content="2019-12-20T07:02:48.907Z">
+<meta property="og:updated_time" content="2019-12-24T01:28:50.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DIN学习笔记">
-<meta name="twitter:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
 <meta name="twitter:image" content="https://yellowzp.github.io/images/DIN.jpg">
 
 
@@ -378,9 +375,9 @@
 
       
         <!-- # DIN学习笔记 -->
+<a id="more"></a>
 <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。</p>
 <p>最近广告这边没什么大需求，同时本人又进行了一次推荐广告的串讲，广告场景中点击率预估目前主要用到了DIN模型，于是顺水推舟看了DIN论文。</p>
-<a id="more"></a>
 <h2 id="2-模型结构"><a href="#2-模型结构" class="headerlink" title="2. 模型结构"></a>2. 模型结构</h2><p><img src="/images/DIN.jpg" alt="图1" title="图1 DIN"></p>
 <h3 id="2-1-base-model"><a href="#2-1-base-model" class="headerlink" title="2.1 base model"></a>2.1 base model</h3><p>论文之前的点击率预估工作中，深度模型可以总结为：embedding层加上MLP。这种模型论文称之为基准模型（base model）。这种模型的优势是省去了繁琐的特征工程工作，缺点是将目标广告与用户历史上所有浏览过的商品联系在一起了。</p>
 <p>在将特征传入神经网络前需要将特征进行预处理。文章将特征分为四类：用户特征（user profile feature）、用户行为特征（user behavior feature）、目标广告特征（ad feaure）和上下文特征（context feature）。用户行为特征就是选取一定量的用户浏览商品。离散特征进行one-hot编码。一些离散特征可以进行压缩处理，如年龄特征，每10岁对应一个值，用10位的one-hot向量表示年龄特征。</p>

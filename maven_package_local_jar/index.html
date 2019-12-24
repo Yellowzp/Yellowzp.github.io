@@ -79,19 +79,16 @@
 
 
 
-<meta name="description" content="步骤1 将本地jar包放到项目/lib/目录下，没有目录创建下。2 在pom.xml里添加需要的依赖。这里关键是scope和systemPath两个标签。scope标签值一定要写system。">
 <meta name="keywords" content="java,maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="idea maven打包加载本地jar包">
 <meta property="og:url" content="https://yellowzp.github.io/maven_package_local_jar/index.html">
 <meta property="og:site_name" content="yellowzp">
-<meta property="og:description" content="步骤1 将本地jar包放到项目/lib/目录下，没有目录创建下。2 在pom.xml里添加需要的依赖。这里关键是scope和systemPath两个标签。scope标签值一定要写system。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yellowzp.github.io/images/maven_package_local_jar.png">
-<meta property="og:updated_time" content="2019-12-23T12:39:29.436Z">
+<meta property="og:updated_time" content="2019-12-24T01:28:50.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="idea maven打包加载本地jar包">
-<meta name="twitter:description" content="步骤1 将本地jar包放到项目/lib/目录下，没有目录创建下。2 在pom.xml里添加需要的依赖。这里关键是scope和systemPath两个标签。scope标签值一定要写system。">
 <meta name="twitter:image" content="https://yellowzp.github.io/images/maven_package_local_jar.png">
 
 
@@ -378,8 +375,8 @@
 
       
         <!-- # idea maven打包加载本地jar包 -->
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1 将本地jar包放到项目/lib/目录下，没有目录创建下。<br>2 在pom.xml里添加需要的依赖。这里关键是scope和systemPath两个标签。scope标签值一定要写system。</p>
 <a id="more"></a>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1 将本地jar包放到项目/lib/目录下，没有目录创建下。<br>2 在pom.xml里添加需要的依赖。这里关键是scope和systemPath两个标签。scope标签值一定要写system。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ml.dmlc<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xgboost4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$&#123;project.basedir&#125;/lib/xgboost4j-binary-example-0.7-jar-with-dependencies.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>3 打开File -&gt; Project Structure，在Artifacts的输出文件右边选项中找到output layout的加号，选择Extracted Directory，然后选择本地jar包。<br>这样，jar包在buid时可以一起编译进来。</p>
 <p><img src="/images/maven_package_local_jar.png" alt="local jar"></p>
