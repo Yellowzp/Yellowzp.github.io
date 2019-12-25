@@ -342,6 +342,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/DIN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/DIN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -501,6 +511,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/hiveSQL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/hiveSQL/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -662,6 +682,16 @@ Hive SQL, 或者叫HQL，和其他SQL语言相似。这篇文章是本人在hive
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/simrank/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/simrank/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -828,6 +858,16 @@ SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图�
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/git_ssh_keygen/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/git_ssh_keygen/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -991,6 +1031,16 @@ gitee和github同时绑定1 生成两份ssh秘钥, 在用户的.ssh目录下
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/maven_package_local_jar/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/maven_package_local_jar/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1151,6 +1201,16 @@ gitee和github同时绑定1 生成两份ssh秘钥, 在用户的.ssh目录下
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/machinelearning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/machinelearning/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1317,6 +1377,16 @@ $$x=\frac{x-\mu}{\sigma}$$
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/markdown/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/markdown/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1478,6 +1548,16 @@ LaTex常用特殊符号对应表https://blog.csdn.net/caiandyong/article/details
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/vscode/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/vscode/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1647,6 +1727,16 @@ Tomorrow and Tomorrow Night Theme
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/java_env/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/java_env/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -2049,6 +2139,28 @@ PATH
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'n7wuIoVVSjuv4F79K6viUiL5-gzGzoHsz',
+        appKey: 'YJHbc1sE0hgQ0NSJzP5nPAdt',
+        placeholder: 'good job!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
