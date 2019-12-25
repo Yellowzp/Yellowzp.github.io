@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="推荐系统,点击率预估,深度学习,">
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="沉淀技术，追求卓越！">
-<meta name="keywords" content="机器学习, 深度学习, 计算广告, 自然语言处理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yellowzp">
-<meta property="og:url" content="https://yellowzp.github.io/categories/机器学习/index.html">
+<meta name="description" content="1. 前言DeepFM[1]是既WDL（wide and deep model）[2]之后在17年提出的。它将FM[3]和WDL融合在一起，将WDL的wide替换为了FM。DeepFM的目的就是完全舍弃繁琐的特征工程工作，并且使模型同时学习出点击率的低阶和高阶特征。 2. 模型DeepFM包含两部分：FM部分和Deep部分。两部分共享使用特征的embedding向量。两部分的输出最终进入一个si">
+<meta name="keywords" content="推荐系统,点击率预估,深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepFM学习笔记">
+<meta property="og:url" content="https://yellowzp.github.io/DeepFM/index.html">
 <meta property="og:site_name" content="yellowzp">
-<meta property="og:description" content="沉淀技术，追求卓越！">
+<meta property="og:description" content="1. 前言DeepFM[1]是既WDL（wide and deep model）[2]之后在17年提出的。它将FM[3]和WDL融合在一起，将WDL的wide替换为了FM。DeepFM的目的就是完全舍弃繁琐的特征工程工作，并且使模型同时学习出点击率的低阶和高阶特征。 2. 模型DeepFM包含两部分：FM部分和Deep部分。两部分共享使用特征的embedding向量。两部分的输出最终进入一个si">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://yellowzp.github.io/images/DeepFM.jpg">
+<meta property="og:updated_time" content="2019-12-25T06:57:46.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yellowzp">
-<meta name="twitter:description" content="沉淀技术，追求卓越！">
+<meta name="twitter:title" content="DeepFM学习笔记">
+<meta name="twitter:description" content="1. 前言DeepFM[1]是既WDL（wide and deep model）[2]之后在17年提出的。它将FM[3]和WDL融合在一起，将WDL的wide替换为了FM。DeepFM的目的就是完全舍弃繁琐的特征工程工作，并且使模型同时学习出点击率的低阶和高阶特征。 2. 模型DeepFM包含两部分：FM部分和Deep部分。两部分共享使用特征的embedding向量。两部分的输出最终进入一个si">
+<meta name="twitter:image" content="https://yellowzp.github.io/images/DeepFM.jpg">
 
 
 
@@ -122,12 +125,12 @@
 
 
 
-  <link rel="canonical" href="https://yellowzp.github.io/categories/机器学习/">
+  <link rel="canonical" href="https://yellowzp.github.io/DeepFM/">
 
 
 
 
-  <title>分类: 机器学习 | yellowzp</title>
+  <title>DeepFM学习笔记 | yellowzp</title>
   
 
 
@@ -156,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -260,53 +263,217 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>机器学习<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yellowzp.github.io/DeepFM/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vesper Huang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar-small.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yellowzp">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/machinelearning/" itemprop="url">
-              
-                <span itemprop="name">机器学习笔记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">DeepFM学习笔记</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-15T16:53:00+08:00" content="2018-11-15">
-          11-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-24T14:54:00+08:00">
+                2019-12-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/DeepFM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/DeepFM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/DeepFM/" class="leancloud_visitors" data-flag-title="DeepFM学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- # DeepFM学习笔记 -->
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>DeepFM[1]是既WDL（wide and deep model）[2]之后在17年提出的。它将FM[3]和WDL融合在一起，将WDL的wide替换为了FM。DeepFM的目的就是完全舍弃繁琐的特征工程工作，并且使模型同时学习出点击率的低阶和高阶特征。</p>
+<h2 id="2-模型"><a href="#2-模型" class="headerlink" title="2. 模型"></a>2. 模型</h2><p>DeepFM包含两部分：FM部分和Deep部分。两部分共享使用特征的embedding向量。两部分的输出最终进入一个sigmoid输出节点，得到结果。可见DeepFM和WDL一样，两部分一起进行学习，是一个端到端的深度模型。DeepFM预测模型可表示成：</p>
+<p>$$<br>\hat{y}=sigmoid(y_{FM}+y_{DNN})<br>$$</p>
+<p><img src="/images/DeepFM.jpg" alt="图1" title="图1 DeepFM"></p>
+<h3 id="2-1-FM部分"><a href="#2-1-FM部分" class="headerlink" title="2.1. FM部分"></a>2.1. FM部分</h3><p>FM部分为一个因子分解机，学习一阶特征和特征之间的二阶交互特征。原始特征带上权重累加得到一阶部分；特征的embedding向量之间内积作为二阶部分的权重。图1中1权连接的意思是embedding向量之间等权相乘。FM能将稀疏的、出现频率低的特征都学习进来，这是以前工作中难以实现的。个人认为FM部分是论文最大的创新点。</p>
+<p>$$<br>y_{FM}=\left\langle{w,x}\right\rangle+\sum_{j_1=1}^d\sum_{j_2=j_1+1}^d\left\langle{V_{j_1},V_{j_2}}\right\rangle{x_{j_1}\cdot{x_{j_2}}}<br>$$</p>
+<h3 id="2-2-Deep部分"><a href="#2-2-Deep部分" class="headerlink" title="2.2. Deep部分"></a>2.2. Deep部分</h3><p>Deep部分是一个DNN模型。与FM部分共享特征的embedding向量，也就是说Deep部分的输入是所有特征的embedding向量。Deep部分学习的是高阶不等阶的交互特征。DNN这里就不再赘述结构。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a href="https://arxiv.org/abs/1703.04247" target="_blank" rel="noopener">DeepFM: A Factorization-Machine based Neural Network for CTR Prediction</a><br>[2] <a href="https://arxiv.org/abs/1606.07792" target="_blank" rel="noopener">Wide &amp; Deep Learning for Recommender Systems</a><br>[3] <a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">Factorization Machines</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
+          
+            <a href="/tags/点击率预估/" rel="tag"># 点击率预估</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/DIN/" rel="next" title="DIN学习笔记">
+                <i class="fa fa-chevron-left"></i> DIN学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -314,6 +481,14 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+
 
         </div>
         
@@ -334,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -419,6 +603,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1. 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-模型"><span class="nav-number">2.</span> <span class="nav-text">2. 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-FM部分"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. FM部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Deep部分"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. Deep部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -580,6 +780,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
