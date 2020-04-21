@@ -90,7 +90,7 @@
 <meta property="og:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yellowzp.github.io/images/DIN.jpg">
-<meta property="og:updated_time" content="2019-12-24T01:34:15.028Z">
+<meta property="og:updated_time" content="2020-04-21T07:43:48.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DIN学习笔记">
 <meta name="twitter:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
@@ -284,7 +284,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vesper Huang">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar-small.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -418,7 +418,7 @@
 <p>计算机向量内积与数学内积一样，就是点积：</p>
 <p>$$<br>\textbf{a}\cdot{\textbf{b}}=a_1b_1+a_2b_2+a_3b_3<br>$$</p>
 <p>计算机外积：</p>
-<p>$$<br>\textbf{a}\times{\textbf{b}}=[a_1,a_2,a_3]^T\times[b_1,b_2,b_3]=\begin{bmatrix}<br>    a_1b_1 &amp; a_1b_2 &amp; a_1b_3 \\<br>    a_2b_1 &amp; a_2b_2 &amp; a_2b_3 \\<br>    a_3b_1 &amp; a_3b_2 &amp; a_3b_3<br>\end{bmatrix}<br>$$</p>
+<p>$$<br>\textbf{a}\times{\textbf{b}}=[a_1,a_2,a_3]^T\times[b_1,b_2,b_3]=\begin{bmatrix}<br>    a_1b_1 &amp; a_1b_2 &amp; a_1b_3 \<br>    a_2b_1 &amp; a_2b_2 &amp; a_2b_3 \<br>    a_3b_1 &amp; a_3b_2 &amp; a_3b_3<br>\end{bmatrix}<br>$$</p>
 <ul>
 <li>激活函数的意义是什么？</li>
 </ul>
@@ -559,7 +559,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar-small.jpg" alt="Vesper Huang">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Vesper Huang">
             
               <p class="site-author-name" itemprop="name">Vesper Huang</p>
               <p class="site-description motion-element" itemprop="description">沉淀技术，追求卓越！</p>
@@ -669,25 +669,28 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Vesper Huang</span>
+  
+  
+  <span class="post-meta-divider">|</span>
+  <span class="BbeiAn-info"">
+   浙ICP备 -
+   <a href="http://www.miitbeian.gov.cn/">18013624号</a>
+  </span>
+  
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -701,7 +704,7 @@
     <span class="site-uv">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span></span>
+      <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span></span>
     </span>
   
 
@@ -709,7 +712,7 @@
     <span class="site-pv">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      <span id="busuanzi_container_site_pv">本站访问量<span id="busuanzi_value_site_pv"></span></span>
+      <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span></span>
     </span>
   
 </div>
