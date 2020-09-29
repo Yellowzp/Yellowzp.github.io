@@ -88,7 +88,7 @@
 <meta property="og:description" content="前言SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，二部图的子集内部">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yellowzp.github.io/images/bi_graph.jpg">
-<meta property="og:updated_time" content="2020-04-21T07:43:48.801Z">
+<meta property="og:updated_time" content="2019-12-24T01:35:20.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SimRank算法原理">
 <meta name="twitter:description" content="前言SimRank是一种基于图的推荐算法。思想与协同过滤算法相似：  如果两个用户相似，则与这两个用户相关联的物品也类似； 如果两个物品类似，则与这两个物品相关联的用户也类似。  SimRank应用于可以构建二部图的推荐场景。所谓二部图就是图中的节点可以分成两个子集，而图中任意一条边的两个端点分别来源于这两个子集。如图1，将用户和物品的购买行为构建成一个二部图。从图中也可以看出，二部图的子集内部">
@@ -342,30 +342,9 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/simrank/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/simrank/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-             <span id="/simrank/" class="leancloud_visitors" data-flag-title="SimRank算法原理">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -403,14 +382,14 @@
 <p>$$<br>s(c,d)=\frac{C_2}{|I(c)||I(d)|}\sum_{i=1}^{|I(c)|}\sum_{j=1}^{|I(d)|}s(I_i(c), I_j(d))<br>\tag{2}<br>$$</p>
 <p>其中$I(a)$为节点a的入邻节点，$O(a)$为出邻节点，$C_1$和$C_2$为阻尼系数。</p>
 <p>综上可以看出，式(1)和式(2)非常相似。所以我们可以将有向二部图看成无向图，即删去边的方向。所有节点通过边相连的节点都视为其的入邻节点。另外一般赋值$C_1=C_2=C$。于是朴素SimRank的公式如下：</p>
-<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b})\<br>    1 &amp; (a=b)<br>\end{cases}<br>$$<br>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
+<p>$$<br>s_0(a,b)=\begin{cases}<br>    0 &amp; (a\neq{b})\\<br>    1 &amp; (a=b)<br>\end{cases}<br>$$<br>$$<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s_k(I_i(a), I_j(b))<br>$$</p>
 <p>其中$s_k(x,y)$表示第k轮迭代中两个节点的相似度。</p>
 <h3 id="矩阵化"><a href="#矩阵化" class="headerlink" title="矩阵化"></a>矩阵化</h3><p>为方便计算和分布式实现，需要将上式转化为矩阵计算。注意到上式可以转化为：</p>
-<p>$$<br>\begin{aligned}<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\end{aligned}<br>\tag{3}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>s_{k+1}(a,b)=\frac{C}{|I(a)||I(b)|}\sum_{i=1}^{|I(a)|}\sum_{j=1}^{|I(b)|}s(I_i(a),I_j(b)) \\<br>=C\sum_{i=1}^{|V|}\sum_{j=1}^{|V|}p(v_i,a)s_k(v_i,v_j)p(v_j,b)<br>\end{aligned}<br>\tag{3}<br>$$</p>
 <p>其中$V$是二部图节点集合，$k$是当前迭代的轮数，$v_i$为$V$中第$i$个节点。$p(v_i,a)$表示节点$v_i$到节点$a$的转移概率，其公式为：</p>
-<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\begin{cases}<br>    1 &amp; x和y相邻 \<br>    0 &amp; x和y不相邻<br>\end{cases}<br>$$</p>
+<p>$$<br>p(x,y)=\frac{e(x,y)}{|E(y)|}=\frac{e(x,y)}{\sum_{i=1}^{|V|}e(x,v_i)}<br>\tag{4}<br>$$<br>$$<br>e(x,y)=\begin{cases}<br>    1 &amp; x和y相邻 \\<br>    0 &amp; x和y不相邻<br>\end{cases}<br>$$</p>
 <p>于是，节点间的相似度矩阵S的计算公式为：</p>
-<p>$$<br>S_k=\begin{cases}<br>    CP^TS_{k-1}P+I_n-Diag(diag(CP^TS_kP)) &amp; k &gt; 0 \<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
+<p>$$<br>S_k=\begin{cases}<br>    CP^TS_{k-1}P+I_n-Diag(diag(CP^TS_kP)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
 <p>其中，矩阵S的元素$s_{i,j}=s(i,j)$，节点间的相似度。$P$是二部图的邻接矩阵按行归一化后的转移概率矩阵，即$P$每一行元素和为1。$I_n$是$n*n$的单位矩阵。$diag(M)$函数是取矩阵M的对角向量，$Diag(V)$是将向量V转为一个对角矩阵。因为相似度矩阵S中，节点自己与自己的相似度为1，所以需要加入修正项。</p>
 <h2 id="SimRank"><a href="#SimRank" class="headerlink" title="SimRank++"></a>SimRank++</h2><p>朴素SimRank会有以下存在问题。</p>
 <ol>
@@ -434,7 +413,7 @@
 <p>$$<br>p_w(x,y)=e^{-var(y)}\frac{w(x,y)}{\sum_{i=1}^{|V|}w(x,v_i)}<br>$$<br>$$<br>特别p_w(x,x)=1-\sum_{i=1}^{|V|}p_w(x, v_i)<br>$$<br>$$<br>var(y)=\frac{\sum_i^{|E(y)|}(w(E_i(y),y)-\mu_y)^2}{|E(y)|}<br>$$</p>
 <p>其中$w(x,y)$表示节点x和y之间的边数（x对y的点击数）。$var(y)$即y的所有邻边的权重方差，可见方差越大，权重越小。</p>
 <p>于是，节点间的相似度矩阵S的计算公式改为：</p>
-<p>$$<br>S_k=\begin{cases}<br>    CW^TS_{k-1}W+I_n-Diag(diag(CW^TS_kW)) &amp; k &gt; 0 \<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
+<p>$$<br>S_k=\begin{cases}<br>    CW^TS_{k-1}W+I_n-Diag(diag(CW^TS_kW)) &amp; k &gt; 0 \\<br>        I_n &amp; k=0<br>\end{cases}<br>$$</p>
 <p>$W$是二部图的带权转移概率矩阵，元素就是$p_w(i,j)$。</p>
 <h3 id="完整SimRank-算法步骤"><a href="#完整SimRank-算法步骤" class="headerlink" title="完整SimRank++算法步骤"></a>完整SimRank++算法步骤</h3><p>输入: 阻尼系数$C$，迭代词数$k$，带权转移矩阵$W$，证据矩阵$V$<br>输出: 节点相似度矩阵$S$<br>程序:  </p>
 <ol>
@@ -627,6 +606,12 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
+                    <a href="mailto:yellowzp@126.com" target="_blank" title="126">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
                     <a href="https://github.com/yellowzp" target="_blank" title="github">
                       
                         <i class="fa fa-fw fa-github"></i></a>
@@ -716,26 +701,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span></span>
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -881,28 +846,6 @@
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: '5RsY5w1CLUcp1TV59KIKX7bR-9Nh9j0Va',
-        appKey: 'nEaEAjBEkm9FmCKz6nE5dIQJ',
-        placeholder: 'good job!',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
 
 
 
@@ -914,113 +857,6 @@
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("5yuinCxBvOvIcK6xAxzMmqde-9Nh9j0Va", "b0O7FTkKjVWbKpVytN4I4BJO");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 

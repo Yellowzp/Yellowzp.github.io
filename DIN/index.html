@@ -88,7 +88,7 @@
 <meta property="og:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yellowzp.github.io/images/DIN.jpg">
-<meta property="og:updated_time" content="2020-04-21T07:43:48.801Z">
+<meta property="og:updated_time" content="2019-12-24T01:34:15.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DIN学习笔记">
 <meta name="twitter:description" content="1. 前言点击率预估是推荐系统和互联网广告等场景的一个重点研究问题。随着深度学习的快速发展和应用，基于深度学习的点击率预估模型在以飞快的速度发展和迭代。深度兴趣网络（Deep Interest Network，DIN）是既FM和WDL之后又是一个里程碑的点击率预估模型，它最重要的创新思想就是对于目标商品，用户是否点击只和用户的历史行为的一部分有关系，而不是全部。 最近广告这边没什么大需求，同时本">
@@ -342,30 +342,9 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/DIN/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/DIN/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-             <span id="/DIN/" class="leancloud_visitors" data-flag-title="DIN学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -416,7 +395,7 @@
 <p>计算机向量内积与数学内积一样，就是点积：</p>
 <p>$$<br>\textbf{a}\cdot{\textbf{b}}=a_1b_1+a_2b_2+a_3b_3<br>$$</p>
 <p>计算机外积：</p>
-<p>$$<br>\textbf{a}\times{\textbf{b}}=[a_1,a_2,a_3]^T\times[b_1,b_2,b_3]=\begin{bmatrix}<br>    a_1b_1 &amp; a_1b_2 &amp; a_1b_3 \<br>    a_2b_1 &amp; a_2b_2 &amp; a_2b_3 \<br>    a_3b_1 &amp; a_3b_2 &amp; a_3b_3<br>\end{bmatrix}<br>$$</p>
+<p>$$<br>\textbf{a}\times{\textbf{b}}=[a_1,a_2,a_3]^T\times[b_1,b_2,b_3]=\begin{bmatrix}<br>    a_1b_1 &amp; a_1b_2 &amp; a_1b_3 \\<br>    a_2b_1 &amp; a_2b_2 &amp; a_2b_3 \\<br>    a_3b_1 &amp; a_3b_2 &amp; a_3b_3<br>\end{bmatrix}<br>$$</p>
 <ul>
 <li>激活函数的意义是什么？</li>
 </ul>
@@ -606,6 +585,12 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
+                    <a href="mailto:yellowzp@126.com" target="_blank" title="126">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
                     <a href="https://github.com/yellowzp" target="_blank" title="github">
                       
                         <i class="fa fa-fw fa-github"></i></a>
@@ -695,26 +680,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span></span>
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -860,28 +825,6 @@
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: '5RsY5w1CLUcp1TV59KIKX7bR-9Nh9j0Va',
-        appKey: 'nEaEAjBEkm9FmCKz6nE5dIQJ',
-        placeholder: 'good job!',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
 
 
 
@@ -893,113 +836,6 @@
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("5yuinCxBvOvIcK6xAxzMmqde-9Nh9j0Va", "b0O7FTkKjVWbKpVytN4I4BJO");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
